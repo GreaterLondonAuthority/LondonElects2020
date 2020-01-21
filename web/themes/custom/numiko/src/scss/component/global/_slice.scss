@@ -1,0 +1,59 @@
+.slice {
+  margin: $spacing-m 0;
+  @include clearfix;
+
+  @include media('>=large') {
+    margin: $spacing-xxl 0;
+  }
+}
+
+
+.slice-w-padding {
+  padding: $spacing-m 0;
+
+  @include media('>=large') {
+    padding: $spacing-xxl 0;
+  }
+}
+
+.slice__title {
+  margin-bottom: $spacing-s;
+
+  @include media('>=large') {
+    margin-bottom: $spacing-m;
+  }
+}
+
+.slice-banner,
+.slice-polling-station-search {
+  background-color: color('white');
+
+  h2, p {
+    max-width: 100%;
+    display: block;
+  }
+}
+
+.slice-banner {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.slice-banner__content {
+  display: block;
+  margin-bottom: $spacing-xs;
+}
+
+.slice-w-border,
+.slice-candidate--results,
+.slice-available-seats--results,
+.slice-related-downloads--results {
+  border-bottom: 1px solid color('keyline');
+  margin-bottom: 0;
+  padding-bottom: $spacing-m;
+
+  @include media('>=large') {
+    padding-bottom: $spacing-xxl;
+  }
+}

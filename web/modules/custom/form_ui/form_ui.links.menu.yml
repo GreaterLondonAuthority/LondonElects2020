@@ -1,0 +1,6 @@
+form_ui.settings_form:
+  title: 'Form UI Settings'
+  route_name: form_ui.ui_settings_form
+  description: 'Configuration settings for Form UI'
+  parent: system.admin_config_system
+  weight: 99

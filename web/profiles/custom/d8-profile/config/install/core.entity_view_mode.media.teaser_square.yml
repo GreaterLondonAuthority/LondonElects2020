@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.teaser_square
+label: 'Teaser Square'
+targetEntityType: media
+cache: true

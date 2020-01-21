@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: uncropped_tiny
+label: 'Uncropped - Tiny (400w)'
+effects:
+  bb5ad750-1ca6-457f-b817-16641ea35d61:
+    uuid: bb5ad750-1ca6-457f-b817-16641ea35d61
+    id: image_scale
+    weight: 1
+    data:
+      width: 400
+      height: null
+      upscale: false
+pipeline: local_binaries

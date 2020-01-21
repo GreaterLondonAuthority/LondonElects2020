@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_media_small
+label: '16:9 Media - Small (750×422)'
+effects:
+  367406ae-4e05-4dfe-9779-fd6467e0d87f:
+    uuid: 367406ae-4e05-4dfe-9779-fd6467e0d87f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 422
+      crop_type: focal_point
+pipeline: local_binaries

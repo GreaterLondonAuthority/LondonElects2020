@@ -1,0 +1,13 @@
+{% for item in items %}
+  {% set plural = item.content|field == '1' ? '' : 's' %}
+
+  <div class="chart__data">
+    <div class="chart__graphic">
+      <div class="chart__graphic__foreground" style="width: {{ item.content["#markup"] / 25 * 100 }}%;"></div> {# '25' is equal to number of seats available #}
+    </div>
+    <div class="chart__value">
+      <p>({{ item.content }} seat{{ plural }} total)</p>
+    </div>
+  </div>
+
+{% endfor %}

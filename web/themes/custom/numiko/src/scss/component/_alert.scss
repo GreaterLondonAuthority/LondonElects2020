@@ -1,0 +1,37 @@
+.alert {
+  background-color: color('grey-light');
+  display: none;
+}
+
+.alert__inner {
+  padding: 1.5rem 0;
+  @include typi('small');
+
+  @include media('>=medium') {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  p {
+    margin-bottom: 0.5em;
+
+    @include media('>=medium') {
+      margin-bottom: 0;
+      margin-right: 2rem;
+    }
+  }
+}
+
+.alert__btn {
+  flex-shrink: 0;
+}
+
+
+.alert--bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+}

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_teaser
+label: 'Slice: Teaser'
+icon_uuid: null
+description: 'Add a slice teasing a list of content'
+behavior_plugins: {  }

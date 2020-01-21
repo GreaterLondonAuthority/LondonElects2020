@@ -1,0 +1,85 @@
+.button {
+  display: inline-block;
+  border: 1px solid color('black');
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  color: color('base');
+  text-decoration: none;
+  transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+
+
+  // Icon position inside button
+  > .icon {
+    transition: transform 0.3s ease 0.1s;
+
+    &:first-child {
+      margin-right: 0.5em;
+    }
+    
+    &:last-child {
+      margin-left: 0.5em;
+    }
+ }
+
+  /*
+  * Icons types inside the button
+  */
+  .icon--arrow {
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 0.5em; // space for the arrow to animate into
+    position: relative;
+    top: -0.075em;
+  }
+
+  /*
+  * States
+  */
+  &:hover,
+  &:focus {
+    background-color: color('black');
+    color: color('white');
+    border-color: color('white');
+
+    >.icon--arrow:last-child {
+      transform: translateX(0.75em);
+    }
+  }
+}
+
+/*
+* Inverted style version
+*/
+.button--inverted {
+  border-color: color('white');
+  color: color('white');
+
+  &:hover,
+  &:focus {
+    background-color: color('white');
+    color: color('black');
+    border-color: color('black');
+  }
+}
+
+/*
+* Reversed button version
+*/
+.button--reverse {
+  > .icon {
+    transform: rotate(180deg);
+  } 
+}
+
+/*
+* Remove default button styling
+*/
+.button-reset {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  text-align: inherit;
+}

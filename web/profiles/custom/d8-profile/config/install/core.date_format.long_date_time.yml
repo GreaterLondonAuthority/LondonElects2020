@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: long_date_time
+label: 'Default long date time'
+locked: false
+pattern: 'l, j F, Y - H:i'

@@ -1,0 +1,5 @@
+name: Colour Hex Code
+type: module
+description: Provides a FieldWidget plugin for adding colour hex codes into a form display
+core: 8.x
+package: Field types

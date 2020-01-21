@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser_summary
+    - node.type.article
+  module:
+    - text
+id: node.article.field_teaser_summary
+field_name: field_teaser_summary
+entity_type: node
+bundle: article
+label: 'Teaser summary'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

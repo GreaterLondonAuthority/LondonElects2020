@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 12_6_media_medium
+label: '12:6 Media - Medium (1000×500)'
+effects:
+  72d3ffa2-cca6-4350-95d0-991628cec0ef:
+    uuid: 72d3ffa2-cca6-4350-95d0-991628cec0ef
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1000
+      height: 500
+      crop_type: focal_point
+pipeline: local_binaries

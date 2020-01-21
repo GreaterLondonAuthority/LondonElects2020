@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administer_webform
+  module:
+    - user
+id: user_add_role_action.administer_webform
+label: 'Add the Administer webforms role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: administer_webform

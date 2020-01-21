@@ -1,0 +1,78 @@
+/*
+* Breakpoints 
+*/
+$breakpoints: (
+  tiny: 320px,
+  small: 480px,
+  medium: 768px,
+  large: 1024px,
+  huge: 1400px,
+  mega: 1800px
+);
+
+
+/*
+* Unison: http://bjork24.github.io/Unison/
+*/
+
+$debug: false; // Turn off/on the breakpoint indicator
+
+$mq-sync:
+  tiny map-get($breakpoints, 'tiny'),
+  small map-get($breakpoints, 'small'),
+  medium map-get($breakpoints, 'medium'),
+  large map-get($breakpoints, 'large'),
+  huge map-get($breakpoints, 'huge'),
+  mega map-get($breakpoints, 'mega')
+;
+
+
+// build each media query for js ingestion
+@each $mq in $mq-sync {
+  @media screen and (min-width: nth($mq, 2)) {
+    head { 
+      font-family: "#{nth($mq, 1)} #{nth($mq, 2)}"; 
+    }
+
+    body:after { 
+      content: "#{nth($mq, 1)} - min-width: #{nth($mq, 2)}"; 
+    }
+  }
+}
+
+head {
+  clear: both; 
+
+  // set clear on head to show Unison is set up correctly
+  
+  title { 
+    font-family: "#{$mq-sync}";   // store hash of all breakpoints
+  }
+}
+
+// debug styles to see breakpoint info
+body:after {
+  display: none;
+}
+
+@if $debug == true {
+  body:after {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0,0,0,0.8);
+    text-align: center;
+    color: #FFF;
+    padding: 10px;
+    z-index: 1000;
+    font-size: 12px;
+    font-family: sans-serif;
+  }
+}
+
+
+// hide elements for conditional loading
+// only used for responsive comments plugin
+*[data-usn-if] { display: none; }

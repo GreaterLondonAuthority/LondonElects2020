@@ -1,0 +1,65 @@
+
+.polling-station {
+  margin-top: $container-gutter-small * -1;
+
+  @include media('>=medium') {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: $container-gutter-medium * -1;
+    margin-bottom: 0;
+  }
+
+  @include media('>=large') {
+    margin-left: $container-gutter-large * -1;
+    margin-bottom: 0;
+  }
+}
+
+.polling-station__content,
+.polling-station__map {
+  padding-top: $container-gutter-small;
+
+  @include media('>=medium') {
+    width: 50%;
+    padding-left: $container-gutter-medium;
+  }
+
+  @include media('>=large') {
+    padding-left: $container-gutter-large;
+  }
+}
+
+.polling-station__address {
+  margin-bottom: $spacing-s;
+}
+
+.polling-station--w-100 {
+  .polling-station__content {
+    @include media('>=medium') {
+      width: 100%;
+    }
+  }
+}
+
+.polling-station__map {
+  iframe {
+    height: 50vh;
+    min-height: 200px;
+    width: 100%;
+
+    @include media('>=medium') {
+      height: 100%;
+    }
+  }
+}
+
+.polling-station__content {
+  .links {
+    padding: 0 2rem;
+    margin: 0;
+
+    li {
+      margin-bottom: 1rem;
+    }
+  }
+}

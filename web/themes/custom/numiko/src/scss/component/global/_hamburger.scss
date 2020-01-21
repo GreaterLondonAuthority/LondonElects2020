@@ -1,0 +1,73 @@
+// hamburger menu on mobile
+
+.hamburger {
+  padding: 0;
+  z-index: 3;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  color: color('white');
+  text-align: center;
+  @include typi('small');
+
+  @include media('>=medium') {
+    top: 20px;
+    right: 20px;
+  }
+
+  @include media('>=large') {
+    display: none;
+  }
+}
+
+.hamburger__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+
+
+.hamburger__lines {
+  width: 30px;
+  height: 2px;
+  background-color: color('white');
+  color: color('white');
+  position: relative;
+  display: block;
+  margin-bottom: 1em;
+
+  &:before, &:after {
+    content: "";
+    display: block;
+    width: inherit;
+    height: inherit;
+    background-color: currentColor;
+    position: absolute;
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:before {
+    top: -8px;
+  }
+
+  &:after {
+    bottom: -8px;
+  }
+
+  // Active state
+  .hamburger.is-active & {
+    background-color: transparent;
+
+    &:before {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    &:after {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+

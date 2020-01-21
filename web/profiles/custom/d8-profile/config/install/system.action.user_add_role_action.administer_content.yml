@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administer_content
+  module:
+    - user
+id: user_add_role_action.administer_content
+label: 'Add the Administer content role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: administer_content

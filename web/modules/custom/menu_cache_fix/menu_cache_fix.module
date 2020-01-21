@@ -1,0 +1,59 @@
+<?php
+
+use \Drupal\Core\Entity\EntityInterface;
+
+/**
+ * menu_cache_fix_node_update
+ *
+ * Implements hook_node_update().
+ *
+ * @see _menu_cache_fix_clear_cache
+ * @param \Drupal\Core\Entity\EntityInterface $node
+ */
+function menu_cache_fix_node_update(EntityInterface $node) {
+  _menu_cache_fix_clear_cache();
+}
+
+/**
+ * menu_cache_fix_node_insert
+ *
+ * Implements hook_node_insert().
+ *
+ * @see _menu_cache_fix_clear_cache
+ * @param \Drupal\Core\Entity\EntityInterface $node
+ */
+function menu_cache_fix_node_insert(EntityInterface $node) {
+  _menu_cache_fix_clear_cache();
+}
+
+/**
+ * menu_cache_fix_node_delete
+ *
+ * Implements hook_node_delete().
+ *
+ * @see _menu_cache_fix_clear_cache
+ * @param EntityInterface $node
+ */
+function menu_cache_fix_node_delete(EntityInterface $node) {
+  _menu_cache_fix_clear_cache();
+}
+
+/**
+ * _menu_cache_fix_clear_cache
+ *
+ * Due to the unique, menu-led structure of this site, editing an item often
+ * requires Drupal to rebuild the menu. Especially on the parent level where
+ * siblings are output in an "In this section" block.
+ *
+ * This is espeically apparent when:
+ *
+ *  - removing a node to the menu result in a 500 in the parent page
+ *  - adding a node to the menu where the mode doesn't appear
+ *
+ * To fix this, clear the menu cache at the point of updating/inserting a node.
+ *
+ * @link https://www.dx-experts.nl/drupal-8-development-caching
+ */
+function _menu_cache_fix_clear_cache() {
+  menu_cache_clear_all();
+}

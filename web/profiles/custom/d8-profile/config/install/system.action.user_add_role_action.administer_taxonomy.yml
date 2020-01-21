@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administer_taxonomy
+  module:
+    - user
+id: user_add_role_action.administer_taxonomy
+label: 'Add the Administer taxonomies role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: administer_taxonomy

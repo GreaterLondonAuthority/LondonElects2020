@@ -1,0 +1,30 @@
+
+{% if (content.field_show_social_share|bool_value or content.field_show_email|bool_value or content.field_show_print|bool_value == TRUE) %}
+  <span>Share this page: </span>
+  <ul>
+    <li>
+      <a href="https://twitter.com/intent/tweet?text={{ node.label | url_encode }}&url={{ url('<current>') }}" target="_blank">
+        <span class="visually-hidden">Share on Twitter</span>
+        <svg class='o-icon o-icon--twitter' focusable="false" aria-role="presentation"><use xlink:href='#social-media--icon-twitter'></use></svg>
+      </a>
+    </li>
+    <li>
+      <a href="http://www.facebook.com/share.php?u={{ url('<current>') }}" target="_blank" class="c-social__link">
+        <span class="visually-hidden">Share on Facebook</span>
+        <svg class='o-icon o-icon--facebook' focusable="false" aria-role="presentation"><use xlink:href='#social-media--icon-facebook'></use></svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ url('<current>') }}" target="_blank" class="c-social__link">
+        <span class="visually-hidden">Share on LinkedIn</span>
+        <svg class='o-icon o-icon--linkedin' focusable="false" aria-role="presentation"><use xlink:href='#social-media--icon-linkedin'></use></svg>
+      </a>
+    </li>
+    <li>
+      <a href="mailto:?&amp;subject={{ node.label | url_encode }}&amp;Body=Information: {{ url('<current>') }}" target="_blank">
+        <span class="visually-hidden">Share on Email</span>
+        <svg class='o-icon o-icon--email' focusable="false" aria-role="presentation"><use xlink:href='#social-media--icon-email'></use></svg>
+      </a>
+    </li>
+  </ul>
+{% endif %}

@@ -1,0 +1,40 @@
+/*
+* Color additions and overrides
+* Override any color values - find them in vendor/numiko/color.scss
+*/
+$colors: (
+  // Generic 
+  'black': #000000,
+  'white': #FFFFFF,
+
+  'keyline': #D8D8D8,
+  'keyline-dark': #6B6B6B,
+
+  // Social 
+  'facebook': #1777F2,
+  'twitter': #0E97EC,
+  'linkedin': #2C5D9B,
+  'google': #4285F4,
+  'google-plus': #E0452C,
+  'youtube': #FF3333,
+  'vimeo': #48B6ED,
+  'pinterest': #CE1A19,
+  'instagram': #396D9A,
+  'whatsapp': #25D366,
+
+  // Base 
+  'base': #141414,
+  'base-link': #404040,
+  'base-hover': #007DA8,
+  'base-keyline': #E7E7E7,
+
+  // Message/Warnings
+  'error': #C21212,
+  'success': #89E06B,
+  'warning': #E3EA6C,
+
+  'grey-base': #EDEDED,
+  'grey-base-secondary': #595959,
+  'grey-dark': #242424,
+  'grey-light': #CECECE,
+);

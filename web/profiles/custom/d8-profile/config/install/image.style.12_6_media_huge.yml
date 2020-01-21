@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 12_6_media_huge
+label: '12:6 Media - Huge (1600×800)'
+effects:
+  bfce8951-5be4-4d4e-89fa-4bb69b1f6b13:
+    uuid: bfce8951-5be4-4d4e-89fa-4bb69b1f6b13
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 800
+      crop_type: focal_point
+pipeline: local_binaries

@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: content
+label: Content
+description: ''
+matchers:
+  addf287c-3bd8-4338-8f3b-8ac313aebcb2:
+    uuid: addf287c-3bd8-4338-8f3b-8ac313aebcb2
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles: {  }
+      group_by_bundle: true
+      include_unpublished: false
+      metadata: ''
+      substitution_type: canonical
+      limit: 100

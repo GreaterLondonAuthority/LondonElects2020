@@ -1,0 +1,184 @@
+/*
+* Import @font-face declarions https://github.com/oddbird/accoutrement-type/
+* Option 1 - Import font stack locally
+* Option 2 - Import front stack from google fonts
+* @import 'https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i';
+*/
+
+@include import-webfonts;
+@include typi-init;
+
+/*
+* Global box-sizing method
+*/
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  @include typi('body');
+  @include font-family('base');
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: color('grey-base');
+  color: color('base');
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, 
+.h2, 
+.h3, 
+.h4, 
+.h5, 
+.h6 {
+  margin: 0 0 0.5em;
+  @include font-family('heading');
+  font-weight: 400;
+}
+
+h1, 
+.h1 {
+  @include typi('h1');
+}
+
+h2, 
+.h2 {
+  @include typi('h2');
+}
+
+h3,
+.h3 {
+  @include typi('h3');
+}
+
+h4, 
+.h4 {
+  @include typi('h4');
+}
+
+h5, 
+.h5 {
+  @include typi('h5');
+}
+
+h6, 
+.h6 {
+  @include typi('h6');
+}
+
+p {
+  margin: 0 0 1.25em;
+}
+
+ul,
+ol,
+dl {
+  margin: 0 0 1.25em;
+}
+
+ul,
+ol {
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+} 
+
+a {
+  color: currentColor;
+  transition: color $base-transition-speed ease 0s;
+  text-decoration-skip-ink: auto;
+
+  &:hover,
+  &:focus {
+    color: currentcolor;
+    outline: 0;
+    text-decoration: none;
+  }
+}
+
+hr {
+  border-bottom: 1px solid color('grey');
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1em;
+}
+
+img,
+picture,
+svg {
+  margin: 0;
+  max-width: 100%;
+
+  .no-js & {
+    &.lazyload {
+      display: none;
+    }
+  }
+}
+
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+blockquote {
+  color: color('base');
+  margin: 1em 0;
+  padding-left: 2em;
+  border-left: 2px solid color('keyline');
+  font-style: italic;
+
+  p {
+    position: relative;
+    
+    // Quote marks
+
+    &:first-child:before {
+      content: open-quote;
+      position: absolute;
+      left: -0.5em;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      &:after {
+        content: close-quote;
+      }
+    }
+  }
+
+}
+
+cite {
+  color: color('base');
+  font-style: italic;
+
+  &:before {
+    content: "\2014 \00A0";
+  }
+}
+
+code {
+  padding: 4px 6px;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: 1rem;
+}
+
+b, strong {
+  font-weight: 600;
+}

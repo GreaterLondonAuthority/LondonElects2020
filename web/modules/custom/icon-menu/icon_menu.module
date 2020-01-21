@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Contains icon_menu.module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function icon_menu_form_menu_link_content_menu_link_content_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['description']['widget'][0]['value']['#title'] = t('Description / Icon');
+  $form['description']['widget'][0]['value']['#description'] = t('Shown when hovering over the menu link <b>or</b> the icon class if used in an icon menu.');
+}
+
+/**
+ * Implements hook_theme().
+ */
+function icon_menu_theme() {
+  return [
+    'icon_menu' => [
+      'template' => 'icon_menu',
+      'render element' => 'children',
+      'variables' => [
+        'items' => [],
+        'menu_name' => '',
+      ]
+    ],
+  ];
+};

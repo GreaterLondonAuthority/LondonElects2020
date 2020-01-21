@@ -1,0 +1,7 @@
+name: Form UI
+type: module
+description: Form UI Improvements
+core: 8.x
+package: Numiko
+dependencies:
+  - filter

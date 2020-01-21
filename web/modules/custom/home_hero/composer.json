@@ -1,0 +1,13 @@
+{
+    "name": "home_hero",
+    "type": "drupal-module",
+    "description": "Form alter functions",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/home_hero",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/home_hero",
+        "source": "http://cgit.drupalcode.org/home_hero"
+    }
+}

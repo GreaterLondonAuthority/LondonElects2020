@@ -1,0 +1,6 @@
+{% for item in items %}
+  <div class="l-grid__item">
+    <a class="twitter-timeline" data-height="100%" href="https://twitter.com/{{ item.content }}?ref_src=twsrc%5Etfw">Tweets by {{ item.content }}</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+{% endfor %}

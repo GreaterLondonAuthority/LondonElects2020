@@ -1,0 +1,21 @@
+.jump-links {
+  margin: $spacing-m 0;
+  @include clearfix;
+
+  @include media('>=large') {
+    margin: $spacing-xxl 0;
+  }
+}
+
+.jump-links-list {
+  margin: 0;
+  padding: 0;
+  list-style-position: inside;
+}
+
+//only applied to not natively 'focussable' elements.
+.jump-links-focus {
+  &:focus {
+    outline: none;
+  }
+}

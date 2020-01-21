@@ -1,0 +1,30 @@
+numiko.tiny:
+  label: tiny
+  mediaQuery: ''
+  weight: 0
+  multipliers:
+    - 1x
+numiko.small:
+  label: small
+  mediaQuery: 'all and (min-width: 480px) and (max-width: 767px)'
+  weight: 0
+  multipliers:
+    - 1x
+numiko.medium:
+  label: medium
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 1023px)'
+  weight: 1
+  multipliers:
+    - 1x
+numiko.large:
+  label: large
+  mediaQuery: 'all and (min-width: 1024px) and (max-width: 1399px)'
+  weight: 2
+  multipliers:
+    - 1x
+numiko.huge:
+  label: huge
+  mediaQuery: 'all and (min-width: 1400px) and (max-width: 1800px)'
+  weight: 2
+  multipliers:
+    - 1x

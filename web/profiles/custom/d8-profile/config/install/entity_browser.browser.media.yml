@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: media
+label: 'Media Wysiwyg'
+display: iframe
+display_configuration:
+  width: 100%
+  height: '700'
+  link_text: 'Select media'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  60b33517-a8f4-4833-9217-d6bdffd00581:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
+      submit_text: 'Save image'
+    uuid: 60b33517-a8f4-4833-9217-d6bdffd00581
+    weight: -9
+    label: 'New image'
+    id: entity_form
+  1ae3a97b-5e41-429a-a838-761262c2e899:
+    settings:
+      view: media_browser
+      view_display: entity_browser_1
+      submit_text: 'Select media'
+      auto_select: false
+    uuid: 1ae3a97b-5e41-429a-a838-761262c2e899
+    weight: -10
+    label: 'Existing media'
+    id: view
+  cd660773-5a71-4542-9653-3bddf9f86fe1:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: default
+      submit_text: 'Save video'
+    uuid: cd660773-5a71-4542-9653-3bddf9f86fe1
+    weight: -8
+    label: 'New video'
+    id: entity_form

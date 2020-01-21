@@ -1,0 +1,9 @@
+{
+  "name": "numiko/entity_reference_view_display",
+  "type": "drupal-module",
+  "description": "An entity reference for View Displays",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": { }
+}

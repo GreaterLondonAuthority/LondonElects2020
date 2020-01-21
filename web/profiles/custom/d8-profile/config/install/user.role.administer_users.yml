@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies: {  }
+id: administer_users
+label: 'Administer users'
+weight: -1
+is_admin: null
+permissions:
+  - 'access user profiles'
+  - 'administer users'
+  - 'assign administer_content role'
+  - 'assign administer_menu role'
+  - 'assign administer_taxonomy role'
+  - 'assign administer_users role'
+  - 'assign administer_webform role'
+  - 'assign edit_content role'
+  - 'assign edit_media role'
+  - 'assign publish_content role'
+  - 'cancel account'
+  - 'change own username'
+  - 'select account cancellation method'

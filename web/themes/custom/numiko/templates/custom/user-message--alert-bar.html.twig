@@ -1,0 +1,29 @@
+{#
+/**
+ * @file user-message--alert-bar.html.twig
+ * Theme implementation to present User message data.
+ *
+ * This template is used when viewing User message entities.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_user_message()
+ *
+ * @ingroup themeable
+ */
+#}
+
+<div class="container">
+  <div class="alert__inner">
+    <div class="alert__content">
+      <p class="js-alert-text">{{ content|without('field_button_text') }}</p>
+    </div>
+
+    <button type="button" class="alert__btn button | js-alert-close">
+      <span>{{ content.field_button_text }}</span>
+    </button>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+/*
+* Grid layouts for laying out teasers or other content 
+*/
+
+$grid-gutter: $base-spacing !default;
+
+.l-grid {
+  @include media('>=medium') {
+    display: flex;
+    flex-flow: row wrap;
+  }
+}
+
+.l-grid__item {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.l-grid--2-col {
+  .l-grid__item {
+    @include media('>=medium') {
+      width: 50%;
+    }
+  }
+}
+
+.l-grid--3-col {
+  .l-grid__item {
+    @include media('>=medium') {
+      width: 33.333%;
+    }
+  }
+}
+
+.l-grid--3-col-lrg {
+  .l-grid__item {
+    @include media('>=large') {
+      width: 33.333%;
+    }
+  }
+}
+
+
+.l-grid--4-col {
+  .l-grid__item {
+    @include media('>=medium') {
+      width: 50%;
+    }
+
+    @include media('>=large') {
+      width: 25%;
+    }
+  }
+}
+
+.l-grid--w-h-gutter {
+  @include media('>=medium') {
+    margin-left: $container-gutter-medium * -1;
+    margin-bottom: 0;
+  }
+
+  @include media('>=large') {
+    margin-left: $container-gutter-large * -1;
+    margin-bottom: 0;
+  }
+
+  .l-grid__item {
+    @include media('>=medium') {
+      padding-left: $container-gutter-medium;
+    }
+
+    @include media('>=large') {
+      padding-left: $container-gutter-large;
+    }
+  }
+}
+
+.l-grid--w-v-gutter {
+  margin-top: $container-gutter-small * -1;
+
+  @include media('>=medium') {
+    margin-top: $container-gutter-medium * -1;
+  }
+
+  @include media('>=large') {
+    margin-top: $container-gutter-large * -1;
+  }
+
+  .l-grid__item {
+    padding-top: $container-gutter-small;
+
+    @include media('>=medium') {
+      padding-top: $container-gutter-medium;
+    }
+
+    @include media('>=large') {
+      padding-top: $container-gutter-large;
+    }
+  }
+}

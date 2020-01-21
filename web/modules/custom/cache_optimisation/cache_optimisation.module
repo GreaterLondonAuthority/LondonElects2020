@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * Add additional cache tags.
+ */
+
+use Drupal\Core\Block\BlockPluginInterface;
+
+/**
+ * Implements hook_block_build_alter().
+ */
+function cache_optimisation_block_build_alter(array &$build, BlockPluginInterface $block) {
+  if ($block->getPluginId() === 'system_breadcrumb_block') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node) {
+      $build['#cache']['tags'][] = 'node:' . $node->id();
+    }
+  }
+  if (in_array($block->getPluginId(), _cache_optimisation_get_hero_hidden_blocks())) {
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      $build['#cache']['contexts'][] = 'url';
+    }
+  }
+}
+
+/**
+ * Load all blocks in the hero hidden region and return the id's.
+ */
+function _cache_optimisation_get_hero_hidden_blocks() {
+  $blocks = \Drupal::entityTypeManager()->getStorage('block')->loadByProperties([
+    'theme' => 'numiko',
+    'region' => 'hero_hidden',
+  ]);
+  return array_map(function ($block) {
+    return $block->getPluginId();
+  }, $blocks);
+}

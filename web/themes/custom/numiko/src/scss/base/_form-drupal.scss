@@ -1,0 +1,54 @@
+/*
+* Drupal Specific Form Defaults
+*/
+
+.form-item,
+.form-wrapper {
+  margin-bottom: 1.5em;
+}
+
+// red error border next to input
+
+input:not([type=checkbox]):not([type=radio]),
+select,
+textarea {
+  &.parsley-error {
+    border-left: 5px solid color('error');
+    margin-bottom: 1em;
+  }
+}
+
+// red inline error message
+
+.parsley-required,
+.parsley-type {
+  color: color('error');
+}
+
+.parsley-errors-list {
+  list-style-type: none;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+// if item is required, add visual indicator
+
+.form-required {
+  &:after {
+    content: '*';
+  }
+}
+
+// styling for confirmation message
+
+.webform-confirmation__message,
+.c-status-message {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid color('warning');
+
+  &.-error {
+    border: 1px solid color('error');
+  }
+}
+

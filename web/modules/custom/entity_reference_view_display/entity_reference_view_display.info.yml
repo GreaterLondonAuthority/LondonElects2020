@@ -1,0 +1,5 @@
+name: Entity Reference View Display
+type: module
+description: An entity reference for View Displays
+core: 8.x
+package: Field types

@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: medium_date_time
+label: 'Default medium date time'
+locked: false
+pattern: 'j F Y - H:i'

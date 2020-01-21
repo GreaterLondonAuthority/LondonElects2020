@@ -1,0 +1,46 @@
+/*
+* Container
+*/
+$container-gutter-tiny: 2rem;
+$container-gutter-small: 2rem;
+$container-gutter-medium: 4rem;
+$container-gutter-large: 5rem;
+
+$container-max-width: calc(114.8rem + #{$container-gutter-large});
+
+/*
+* Z-index levels
+* @include z-index('alpha');
+*/
+$z-index: (
+  'alpha',
+  'beta',
+  'gamma',
+  'zeta',
+);
+
+/*
+* Borders
+*/
+$base-border-radius:  0px;
+$base-border-color:   #333;
+
+
+/*
+* Transtions
+*/
+$base-transition-speed: 0.2s;
+
+
+/*
+* Spacing
+*/
+
+$base-spacing: 2rem;
+
+$spacing-xs: 2rem;
+$spacing-s: 3rem;
+$spacing-m: 4rem;
+$spacing-l: 5rem;
+$spacing-xl: 6rem;
+$spacing-xxl: 7rem;

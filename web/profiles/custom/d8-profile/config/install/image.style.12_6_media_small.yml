@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 12_6_media_small
+label: '12:6 Media - Small (750×375)'
+effects:
+  1fdfb93f-47f3-4505-98f8-42fe9fed86b2:
+    uuid: 1fdfb93f-47f3-4505-98f8-42fe9fed86b2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 375
+      crop_type: focal_point
+pipeline: local_binaries

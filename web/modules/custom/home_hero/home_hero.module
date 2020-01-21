@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Contains home_hero.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+
+
+/**
+ * Implements hook_help().
+ */
+function home_hero_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the home_hero module.
+    case 'help.page.home_hero':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Hide home hero fieldgroup for new landing page forms and edit form if not set as the home page.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function home_hero_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'node_landing_page_form':
+    case 'node_landing_page_edit_form':
+      $current_path = \Drupal::service('path.current')->getPath();
+      $config = \Drupal::config('system.site');
+      $front_url = $config->get('page.front');
+      if ($current_path != $front_url . '/edit') {
+        foreach ($form['#fieldgroups']['group_home_hero']->children as $form_element_id) {
+          $form[$form_element_id]['#access'] = FALSE;
+        }
+      }
+    break;
+  }
+}

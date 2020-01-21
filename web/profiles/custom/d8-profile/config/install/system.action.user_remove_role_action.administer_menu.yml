@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administer_menu
+  module:
+    - user
+id: user_remove_role_action.administer_menu
+label: 'Remove the Administer menus role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: administer_menu

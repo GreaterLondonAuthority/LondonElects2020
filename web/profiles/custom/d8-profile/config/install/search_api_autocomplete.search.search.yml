@@ -1,0 +1,35 @@
+uuid: fedc1134-c4e7-4263-9e6d-ca8ac9aea11c
+langcode: en
+status: true
+dependencies:
+  config:
+    - search_api.index.site
+    - views.view.search
+  module:
+    - views
+    - search_api_autocomplete
+_core:
+  default_config_hash: default_config_hash
+id: search
+label: Search
+index_id: site
+suggester_settings:
+  server:
+    fields:
+      - page_title
+suggester_weights:
+  server: 0
+  search_api_solr_suggester: 0
+suggester_limits: {  }
+search_settings:
+  'views:search':
+    displays:
+      default: true
+      selected: {  }
+options:
+  limit: 10
+  min_length: 1
+  show_count: false
+  autosubmit: true
+  submit_button_selector: ':submit'
+  delay: null

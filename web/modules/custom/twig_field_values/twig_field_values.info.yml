@@ -1,0 +1,5 @@
+name: Twig Field Values
+type: module
+description: Twig Field Values
+core: 8.x
+package: Numiko

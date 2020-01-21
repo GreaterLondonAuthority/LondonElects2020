@@ -1,0 +1,9 @@
+// Check if type is list
+@function is-list($var) {
+  @return type-of($var) == 'list';
+}
+
+// Check if number
+@function is-number($var) {
+  @return type-of($var) == 'number';
+}

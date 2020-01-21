@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administer_content
+  module:
+    - user
+id: user_remove_role_action.administer_content
+label: 'Remove the Administer content role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: administer_content

@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: {  }
+id: prod
+label: Prod
+description: ''
+folder: ../config/prod
+module:
+  advagg: 0
+  advagg_css_minify: 0
+  advagg_js_minify: 0
+  minifyhtml: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

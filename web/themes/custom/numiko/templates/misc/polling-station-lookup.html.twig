@@ -1,0 +1,116 @@
+<!-- Add your custom twig html here -->
+{% if has_value(content.message) %}
+
+  <div class='hero'>
+    <div class='hero__content'>
+      <div class='container'>
+        <h1 class='hero__heading'>
+          We couldn't find a station for <strong>{{ content.postcode }}</strong>
+        </h1>
+        <a href="{{ return_path }}" class="button button--reverse hero__btn">
+          <svg class="icon icon--stroke">
+            <use xlink:href="#sprite-icon-arrow"></use>
+          </svg>
+          <span>Return to postcode search</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  {% if has_value(content.electoral_services) %}
+  <section class="slice" aria-labelledby="polling-station-no-results">
+    <div class='container'>
+      <div class="polling-station polling-station--w-100">
+        <div class="polling-station__content">
+          <h2 id="polling-station-no-results">Get in touch with: {{ content.electoral_services.name }}</h2>
+          <ul class="u-list-reset">
+            <li>
+              <a href="mailto:{{ content.electoral_services.contacts.email }}" target="_blank" rel="noopener">
+                <span class="visually-hidden">Email: </span>{{ content.electoral_services.contacts.email }}
+              </a>
+            </li>
+            <li>
+              <a href="tel:{{ content.electoral_services.contacts.phone }}" target="_blank" rel="noopener">
+                <span class="visually-hidden">Phone: </span>{{ content.electoral_services.contacts.phone }}
+              </a>
+            </li>
+            <li>
+              <a href="{{ content.electoral_services.contacts.website }}" target="_blank" rel="noopener">
+                <span class="visually-hidden">Website: </span>{{ content.electoral_services.contacts.website }}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endif %}
+
+{% else %}
+
+  <div class='hero'>
+    <div class='hero__content'>
+      <div class='container'>
+        <h1 class='hero__heading'>
+          <span class='hero__heading-upper'>The local polling station for <strong>{{ content.postcode }}</strong> is </span>
+          {{ content.address_line_1 }}
+        </h1>
+        <a href="{{ return_path }}" class="button button--reverse hero__btn">
+          <svg class="icon icon--stroke">
+            <use xlink:href="#sprite-icon-arrow"></use>
+          </svg>
+          <span>Return to postcode search</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <section class="slice" aria-labelledby="polling-station-w-results">
+    <div class='container'>
+      <div class="polling-station">
+        <div class="polling-station__content">
+          <h2 id="polling-station-w-results">Contact Details</h2>
+          <div class="polling-station__address">
+            <h3>Address</h3>
+            <address>
+              {{ content.address }}
+            </address>
+          </div>
+          <div class="polling-station__services">
+            <h3>Electoral Services</h3>
+            <address>
+              {{ content.electoral_services.name }}<br/>
+              {{ content.electoral_services.address }}
+            </address>
+            <ul class="u-list-reset">
+              <li>
+                <a href="mailto:{{ content.electoral_services.contacts.email }}" target="_blank" rel="noopener">
+                  <span class="visually-hidden">Email: </span>{{ content.electoral_services.contacts.email }}
+                </a>
+              </li>
+              <li>
+                <a href="tel:{{ content.electoral_services.contacts.phone }}" target="_blank" rel="noopener">
+                  <span class="visually-hidden">Phone: </span>{{ content.electoral_services.contacts.phone }}
+                </a>
+              </li>
+              <li>
+                <a href="{{ content.electoral_services.contacts.website }}" target="_blank" rel="noopener">
+                  <span class="visually-hidden">Website: </span>{{ content.electoral_services.contacts.website }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="polling-station__map">
+          <iframe
+            width="100%"
+            height="100%"
+            frameborder="0" style="border:0"
+            src="{{ gmap_src }}" allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endif %}

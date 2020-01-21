@@ -1,0 +1,5 @@
+services:
+  user_login_admin.route_subscriber:
+    class: Drupal\user_login_admin\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

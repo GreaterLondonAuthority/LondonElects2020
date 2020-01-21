@@ -1,0 +1,3 @@
+services:
+  form_ui.save_edit:
+    class: Drupal\form_ui\Form\FormSaveEditButtonHandler

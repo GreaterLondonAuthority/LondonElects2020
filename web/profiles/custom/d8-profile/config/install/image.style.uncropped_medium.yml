@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: uncropped_medium
+label: 'Uncropped - Medium (1000w)'
+effects:
+  dcf69c61-627a-47be-9734-d1c711eb9af4:
+    uuid: dcf69c61-627a-47be-9734-d1c711eb9af4
+    id: image_scale
+    weight: 1
+    data:
+      width: 1000
+      height: null
+      upscale: false
+pipeline: local_binaries

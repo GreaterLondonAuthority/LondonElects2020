@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.publish_content
+  module:
+    - user
+id: user_add_role_action.publish_content
+label: 'Add the Publish content role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: publish_content

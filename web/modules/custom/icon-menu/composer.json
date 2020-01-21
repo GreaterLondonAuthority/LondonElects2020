@@ -1,0 +1,9 @@
+{
+  "name": "numiko/icon-menu",
+  "type": "drupal-module",
+  "description": "An extension to system menu to add svg icons to a menu",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": { }
+}

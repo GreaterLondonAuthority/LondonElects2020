@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.administer_webform
+  module:
+    - user
+id: user_remove_role_action.administer_webform
+label: 'Remove the Administer webforms role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: administer_webform

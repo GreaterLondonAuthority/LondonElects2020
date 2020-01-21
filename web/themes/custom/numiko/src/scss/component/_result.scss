@@ -1,0 +1,42 @@
+
+.result {
+  width: 100%;
+
+  p {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.result__title {
+  margin-bottom: 1rem;
+
+  span {
+    margin-bottom: 1rem;
+    display: block;
+    @include typi('small');
+    text-transform: uppercase;
+  }
+}
+
+.result__stats {
+  display: flex;
+  width: 100%;
+  margin-top: $spacing-s;
+}
+
+.result__stats-inner {
+  color: color('grey-base-secondary');
+  width: 50%;
+
+  &:first-of-type {
+    margin-right: $spacing-s;
+  }
+
+  span {
+    color: color('grey-dark');
+    @include typi('h1-large');
+    display: block;
+  }
+}

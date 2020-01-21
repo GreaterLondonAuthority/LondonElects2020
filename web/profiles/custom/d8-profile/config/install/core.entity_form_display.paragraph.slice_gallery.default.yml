@@ -1,0 +1,50 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.media
+    - field.field.paragraph.slice_gallery.field_hide_title
+    - field.field.paragraph.slice_gallery.field_media_items
+    - field.field.paragraph.slice_gallery.field_title
+    - paragraphs.paragraphs_type.slice_gallery
+  module:
+    - entity_browser
+id: paragraph.slice_gallery.default
+targetEntityType: paragraph
+bundle: slice_gallery
+mode: default
+content:
+  field_hide_title:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_media_items:
+    weight: 2
+    settings:
+      entity_browser: media
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: small
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

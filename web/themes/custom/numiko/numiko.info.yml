@@ -1,0 +1,78 @@
+name: Numiko
+type: theme
+base theme: stable
+description: 'This is the site theme.'
+version: VERSION
+core: 8.x
+libraries:
+  - numiko/global-styling
+  - numiko/global-scripts
+regions:
+  notification: Notification
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  highlighted: Highlighted
+  hero: Hero
+  hero_hidden: 'Hero (Hidden / Inserted in Node Hero in .theme)'
+  breadcrumb: Breadcrumb
+  help: 'Help'
+  pre_content: 'Pre Content'
+  content: Content
+  post_content: 'Post Content'
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  footer: 'Footer'
+
+# stylesheets-remove:
+#   - path/to/stylesheet.css
+
+# Remove libraries
+libraries-override:
+  system/base:
+    css:
+      component:
+        /core/themes/stable/css/system/components/ajax-progress.module.css: false
+        /core/themes/stable/css/system/components/align.module.css: false
+        /core/themes/stable/css/system/components/autocomplete-loading.module.css: false
+        /core/themes/stable/css/system/components/fieldgroup.module.css: false
+        /core/themes/stable/css/system/components/container-inline.module.css: false
+        /core/themes/stable/css/system/components/clearfix.module.css: false
+        /core/themes/stable/css/system/components/details.module.css: false
+        /core/themes/stable/css/system/components/hidden.module.css: false
+        /core/themes/stable/css/system/components/item-list.module.css: false
+        /core/themes/stable/css/system/components/js.module.css: false
+        /core/themes/stable/css/system/components/nowrap.module.css: false
+        /core/themes/stable/css/system/components/position-container.module.css: false
+        /core/themes/stable/css/system/components/progress.module.css: false
+        /core/themes/stable/css/system/components/reset-appearance.module.css: false
+        /core/themes/stable/css/system/components/resize.module.css: false
+        /core/themes/stable/css/system/components/sticky-header.module.css: false
+        /core/themes/stable/css/system/components/system-status-counter.css: false
+        /core/themes/stable/css/system/components/system-status-report-counters.css: false
+        /core/themes/stable/css/system/components/system-status-report-general-info.css: false
+        /core/themes/stable/css/system/components/tabledrag.module.css: false
+        /core/themes/stable/css/system/components/tablesort.module.css: false
+        /core/themes/stable/css/system/components/tree-child.module.css: false
+  views/views.module:
+    css:
+      component:
+        /core/themes/stable/css/views/views.module.css: false
+  filter/caption:
+    css:
+      component:
+        /core/themes/stable/css/filter/filter.caption.css: false
+  core/jquery.ui:
+    css:
+      component:
+        assets/vendor/jquery.ui/themes/base/core.css: false
+      theme:
+        assets/vendor/jquery.ui/themes/base/theme.css: false
+  core/jquery.ui.autocomplete:
+    css:
+      component:
+        assets/vendor/jquery.ui/themes/base/autocomplete.css: false
+  core/jquery.ui.menu:
+    css:
+      component:
+        assets/vendor/jquery.ui/themes/base/menu.css: false

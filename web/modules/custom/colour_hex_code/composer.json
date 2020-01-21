@@ -1,0 +1,13 @@
+{
+    "name": "colour_hex_code",
+    "type": "drupal-module",
+    "description": "Provides a FieldWidget plugin for adding colour hex codes into a form display",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/colour_hex_code",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/colour_hex_code",
+        "source": "http://cgit.drupalcode.org/colour_hex_code"
+    }
+}

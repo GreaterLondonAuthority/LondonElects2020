@@ -1,0 +1,6 @@
+name: 'Teaser summary format'
+type: module
+description: 'Update input format for field_teaser_summary instances'
+core: 8.x
+package: 'Numiko'
+version: 1.1

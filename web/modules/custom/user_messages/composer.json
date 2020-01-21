@@ -1,0 +1,13 @@
+{
+    "name": "user_messages",
+    "type": "drupal-module",
+    "description": "User messages",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/user_messages",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/user_messages",
+        "source": "http://cgit.drupalcode.org/user_messages"
+    }
+}

@@ -1,0 +1,226 @@
+<?php
+
+/**
+ * @file
+ * Holds all theme hooks.
+ */
+
+use Drupal\Core\Template\Attribute;
+
+/**
+ * Implements hook_theme_suggestions_paragraph_alter().
+ */
+
+function numiko_theme_suggestions_paragraph_alter(array &$suggestions, array $variables) {
+  $bundle = $variables['elements']['#paragraph']->bundle();
+  if (substr($bundle, 0, 5) === 'slice') {
+    array_splice($suggestions, -2, 0, 'paragraph__slice');
+  }
+}
+
+/**
+ * Implements hook_preprocess_webform().
+ */
+function numiko_preprocess_webform(array &$variables) {
+  $webform = \Drupal::entityTypeManager()->getStorage('webform')->load($variables['element']['#webform_id']);
+  $variables['attributes']['aria-labelledby'] = "webform-legend-" . $webform->id();
+  $variables['attributes']['data-parsley-validate'] = TRUE;
+  $variables['legend_title'] = $webform->label();
+  $variables['legend_attributes'] = new Attribute([
+    'id' => "webform-legend-" . $webform->id(),
+    'class' => 'visually-hidden',
+  ]);
+}
+
+/**
+ * Implements hook_preprocess_responsive_image_formatter().
+ */
+function numiko_preprocess_responsive_image_formatter(array &$variables) {
+
+  $lazyloadResponsiveStyles = [
+    'hero',
+    'hero_standard',
+    'teaser_landscape',
+    'image_styles_go_here'
+  ];
+
+  if (!empty($variables['responsive_image_style_id'])) {
+    if (in_array($variables['responsive_image_style_id'], $lazyloadResponsiveStyles)){
+      $variables['responsive_image']['#attributes']['class'][] = 'lazyload';
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_responsive_image()
+ * Creating lazyload attributes and unsetting srcset, sizes, src attributes
+ * Set width attributes for the responsive image style used in WYSIWYGs
+ */
+function numiko_preprocess_responsive_image(array &$variables) {
+  if (!empty($variables['attributes']['class'])) {
+    if (in_array('lazyload', $variables['attributes']['class'])) {
+
+      if (!empty($variables['img_element']['#uri'])) {
+        unset($variables['img_element']['#uri']); // Stops src attribute being added.
+      }
+
+      if (!empty($variables['img_element']['#attributes']['sizes'])) {
+        $variables['img_element']['#attributes']['data-sizes'] = "auto";
+        unset($variables['img_element']['#attributes']['sizes']);
+      }
+
+      $variables['noscript_img_element'] = $variables['img_element'];
+      unset($variables['noscript_img_element']['#attributes']['class']);
+
+      if (!empty($variables['img_element']['#attributes']['srcset'])) {
+        $variables['img_element']['#attributes']['data-srcset'] = $variables['img_element']['#attributes']['srcset']->value();
+        unset($variables['img_element']['#attributes']['srcset']);
+      }
+    }
+  }
+  if (isset($variables['responsive_image_style_id']) && !empty($variables['responsive_image_style_id'])) {
+    $responsive_image_style_id = $variables['responsive_image_style_id'];
+
+    if ($responsive_image_style_id == 'embed') {
+      $image = \Drupal::service('image.factory')->get($variables['uri']);
+      $width = $image->getWidth();
+
+      $variables['img_element']['#attributes']['width'] = $width;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function numiko_preprocess_node(array &$variables) {
+  if (!empty($variables['attributes']['role'])) {
+    unset($variables['attributes']['role']);
+  }
+
+  $hero_view_modes = ['hero', 'home_hero'];
+  if (in_array($variables['view_mode'],$hero_view_modes)) {
+    // Load all blocks in the hero hidden region
+    // and add them to a 'blocks' variable.
+    $blocks = \Drupal::entityTypeManager()
+      ->getStorage('block')
+      ->loadByProperties([
+        'theme' => 'numiko',
+        'region' => 'hero_hidden',
+      ]);
+    $entityViewBuilder = \Drupal::entityTypeManager()->getViewBuilder('block');
+    foreach ($blocks as $block_id => $block) {
+      $variables['blocks'][$block_id] = $entityViewBuilder->view($block);
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+function numiko_preprocess_page(&$variables) {
+  // Allow site_logo access across all pages
+  $site_config = \Drupal::config('system.site');
+  $variables['site_name'] = $site_config->get('name');
+  $variables['site_slogan'] = $site_config->get('slogan');
+
+  // logo needs to be placed within specified folder
+  $variables['site_logo'] = file_url_transform_relative(file_create_url(theme_get_setting('logo.url')));
+}
+
+/**
+ * Implements hook_preprocess_field().
+ *
+ * Adds the number of items to display to any field on a slice with columns.
+ */
+function numiko_preprocess_field(array &$variables) {
+  if ($variables['entity_type'] === 'paragraph') {
+    $slice = $variables['element']['#object'];
+    if ($slice->hasField('field_columns')) {
+      $variables['columns'] = $slice->get('field_columns')->getString();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_media().
+ */
+function numiko_preprocess_media(array &$variables) {
+
+  if (!empty($variables['elements']['#media'])) {
+    $media = $variables['elements']['#media'];
+
+    switch($media->bundle()) {
+      case 'document':
+        $file = current($media->field_media_file->referencedEntities());
+        if ($file) {
+          $variables['file_url'] = file_create_url($file->getFileUri());
+          $path_parts = pathinfo($variables['file_url']);
+          $variables['file_extension'] = $path_parts['extension'];
+          $variables['file_size'] = human_filesize($file->getSize());
+          $mime_parts = explode('/', $file->getMimeType());
+          $variables['mime'] = array_pop($mime_parts);
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+
+function numiko_preprocess_paragraph(array &$variables) {
+  $paragraph = $variables['paragraph'];
+
+  $parentParagraph = $paragraph->getParentEntity();
+  if ($parentParagraph->hasField('field_show_borough')) {
+    $variables['show_borough'] = $parentParagraph->get('field_show_borough')->getString();
+  }
+
+  if($paragraph->bundle() == 'seat_item' && !$paragraph->get('field_party')->isEmpty()) {
+    $term_id = $paragraph->get('field_party')->getValue()[0]['target_id'];
+    $term = \Drupal::entityTypeManager()
+      ->getStorage('taxonomy_term')
+      ->load($term_id);
+    $variables['party_name'] = $term->getName();
+    $party_colour = $term->get('field_colour_hex');
+    if (!$party_colour->isEmpty()) {
+      $variables['party_colour'] = $party_colour->getValue()[0]['value'];
+    }
+  }
+
+  if($paragraph->bundle() === 'slice_polling_station_search') {
+    $variables['form'] = \Drupal::formBuilder()->getForm('Drupal\polling_station_lookup\Form\PollingStationPostcodeSearch');
+  }
+}
+
+# http://jeffreysambells.com/2012/10/25/human-readable-filesize-php
+function human_filesize($bytes, $decimals = 2) {
+  $size = array('B','KB','MB','GB','TB','PB','EB','ZB','YB');
+  $factor = floor((strlen($bytes) - 1) / 3);
+  return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function numiko_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if ($variables['elements']['#base_plugin_id'] == 'block_content') {
+    // Block suggestions for custom block bundles.
+    if (isset($variables['elements']['content']['#block_content'])) {
+      array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function numiko_preprocess_block(&$variables){
+  if ($variables['derivative_plugin_id'] == 'related_content_taxonomy-related') {
+    $variables['attributes']['class'][] = 'screen-only';
+  }
+}
+
+

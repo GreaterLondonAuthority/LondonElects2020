@@ -1,0 +1,20 @@
+{#
+Variables:
+ - content:
+   - message: System message
+   - postcode: The postcode being searched on
+   - address_line_1: Line 1 of the station address
+   - address: The station address
+   - coordinates: Station Lat+Long
+   - electoral_services: Contact details for the search postcode area
+ - return_path: Path to a node containing a Polling Station Lookup paragraph
+ - gmap_key: Google maps key
+#}
+
+<!-- Add your custom twig html here -->
+{% if has_value(content.message) %}
+  {{ content.message }} for postcode {{ content.postcode }}
+{% else %}
+  The local polling station for {{ content.postcode }} is
+  {{ content|without('message', 'postcode') }}
+{% endif %}

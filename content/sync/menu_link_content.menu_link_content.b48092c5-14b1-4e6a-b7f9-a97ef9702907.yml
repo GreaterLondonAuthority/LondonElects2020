@@ -1,0 +1,61 @@
+uuid:
+  -
+    value: b48092c5-14b1-4e6a-b7f9-a97ef9702907
+langcode:
+  -
+    value: en
+bundle:
+  -
+    value: menu_link_content
+revision_created:
+  -
+    value: '2019-09-11T16:30:14+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_user: {  }
+revision_log_message: {  }
+enabled:
+  -
+    value: true
+title:
+  -
+    value: '2016'
+description:
+  -
+    value: '2016 election results'
+menu_name:
+  -
+    value: election-results
+link:
+  -
+    uri: 'internal:/'
+    title: ''
+    options: {  }
+external:
+  -
+    value: false
+rediscover:
+  -
+    value: true
+weight:
+  -
+    value: 1
+expanded:
+  -
+    value: false
+parent: {  }
+changed:
+  -
+    value: '2019-09-11T16:30:14+00:00'
+    format: 'Y-m-d\TH:i:sP'
+default_langcode:
+  -
+    value: true
+revision_translation_affected:
+  -
+    value: true
+metatag:
+  value:
+    title: 'Single Export | London Elects'
+    canonical_url: 'https://elects.docker:8081/admin/config/development/content/export/single'
+_content_sync:
+  entity_type: menu_link_content

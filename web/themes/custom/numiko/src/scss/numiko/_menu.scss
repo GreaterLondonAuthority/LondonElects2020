@@ -1,0 +1,58 @@
+/*
+* Global menu reset
+*/
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/*
+* Primary menu
+*/
+.menu-primary {
+  background-color: color('black');
+  color: color('white');
+  width: 100%;
+
+  .menu {
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include media('>=large') {
+      flex-flow: row nowrap;
+    } 
+  }
+
+  .menu__item {
+    border-bottom: 1px solid rgba(color('white'), 0.4);
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+
+    @include media('>=large') {
+      position: relative;
+    }
+  }
+
+  .menu__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex: 1;
+    padding: 2rem; 
+
+    @include media('>=large') {
+      text-align: center;
+    }
+
+    @include media(">=huge") {
+      display: block;
+      position: relative;
+    }
+  }
+ 
+}
+
+

@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_1_media_tiny
+label: '1:1 Media - Tiny (400×400)'
+effects:
+  3d21939d-eab8-4bb2-9a89-b83751fe0471:
+    uuid: 3d21939d-eab8-4bb2-9a89-b83751fe0471
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 400
+      crop_type: focal_point
+pipeline: local_binaries

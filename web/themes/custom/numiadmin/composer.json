@@ -1,0 +1,9 @@
+{
+  "name": "numiko/numiadmin",
+  "type": "drupal-theme",
+  "description": "Numiko Admin sub-theme of Seven",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {}
+}

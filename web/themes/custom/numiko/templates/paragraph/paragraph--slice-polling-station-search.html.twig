@@ -1,0 +1,14 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block content %}
+  <div class="l-grid l-grid--2-col l-grid--w-h-gutter l-grid--w-v-gutter">
+    <div class="l-grid__item">
+      <p>{{ content.field_text }}</p>
+    </div>
+    <div class="l-grid__item">
+      <div class="search-bar postcode-search">
+        {{ form }}
+      </div>
+    </div>
+  </div>
+{% endblock content %}

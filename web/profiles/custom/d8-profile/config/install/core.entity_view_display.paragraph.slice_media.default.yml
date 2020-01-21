@@ -1,0 +1,49 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slice_media.field_hide_title
+    - field.field.paragraph.slice_media.field_media
+    - field.field.paragraph.slice_media.field_text_plain_long
+    - field.field.paragraph.slice_media.field_title
+    - paragraphs.paragraphs_type.slice_media
+id: paragraph.slice_media.default
+targetEntityType: paragraph
+bundle: slice_media
+mode: default
+content:
+  field_hide_title:
+    weight: 1
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_media:
+    weight: 2
+    label: hidden
+    settings:
+      view_mode: embed
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_text_plain_long:
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

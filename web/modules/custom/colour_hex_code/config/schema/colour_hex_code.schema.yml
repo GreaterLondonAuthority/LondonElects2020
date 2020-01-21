@@ -1,0 +1,10 @@
+field.widget.settings.colour_hex_code:
+  type: mapping
+  label: 'colour_hex_code widget settings'
+  mapping:
+    size:
+      type: integer
+      label: 'Size'
+    placeholder:
+        type: string
+        label: 'Placeholder'

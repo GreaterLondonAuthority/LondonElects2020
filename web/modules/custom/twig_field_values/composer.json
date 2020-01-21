@@ -1,0 +1,14 @@
+{
+  "name": "numiko/twig_field_values",
+  "type": "drupal-module",
+  "description": "Twig Values",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/twig_values",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/twig_values",
+    "source": "http://cgit.drupalcode.org/twig_values"
+  },
+  "require": { }
+}

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_form
+label: 'Slice: Form'
+icon_uuid: null
+description: 'Add a webform slice'
+behavior_plugins: {  }

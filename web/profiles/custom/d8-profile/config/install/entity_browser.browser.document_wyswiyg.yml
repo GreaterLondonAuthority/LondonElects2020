@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.table_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: document_wyswiyg
+label: 'Document Wyswiyg'
+display: iframe
+display_configuration:
+  width: 100%
+  height: '650'
+  link_text: 'Select documents'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  a8c5937f-77fd-475b-8dba-b47f44390a4b:
+    settings:
+      view: table_entity_browser
+      view_display: document_browser
+      submit_text: 'Select documents'
+      auto_select: false
+    uuid: a8c5937f-77fd-475b-8dba-b47f44390a4b
+    weight: 1
+    label: 'Existing documents'
+    id: view
+  91908ed2-0262-4e82-a167-276923514a49:
+    settings:
+      entity_type: media
+      bundle: document
+      form_mode: default
+      submit_text: 'Save document'
+    uuid: 91908ed2-0262-4e82-a167-276923514a49
+    weight: 2
+    label: 'New document'
+    id: entity_form

@@ -1,0 +1,52 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slice_accordion.field_hide_title
+    - field.field.paragraph.slice_accordion.field_items
+    - field.field.paragraph.slice_accordion.field_title
+    - paragraphs.paragraphs_type.slice_accordion
+  module:
+    - paragraphs
+id: paragraph.slice_accordion.default
+targetEntityType: paragraph
+bundle: slice_accordion
+mode: default
+content:
+  field_hide_title:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_items:
+    type: paragraphs
+    weight: 2
+    settings:
+      title: 'Accordion item'
+      title_plural: 'Accordion items'
+      edit_mode: open
+      closed_mode: preview
+      autocollapse: none
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: accordion_item
+      closed_mode_threshold: 0
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+    third_party_settings: {  }
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

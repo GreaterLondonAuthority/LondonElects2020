@@ -1,0 +1,48 @@
+@mixin _animate-underline-active($height, $inverted: false) {
+  transition-timing-function: ease('power4', 'out');
+
+  @if ($inverted) {
+    background-size: 0 $height;
+  } @else {
+    background-size: 100% $height;
+  }
+}
+
+@mixin animate-underline($start-position: 'center', $height: 2px, $include-is-active: true, $color: currentColor, $offset: 0em, $selector: '.animate-underline', $inverted: false) {
+  text-decoration: none;
+
+  #{$selector} {
+    color: inherit;
+    background-image: linear-gradient($color, $color);
+    background-position: unquote($start-position) bottom $offset;
+    background-repeat: no-repeat;
+    transition: background-size $base-transition-speed ease;
+  }
+
+  @if ($inverted) {
+    #{$selector} {
+      background-size: 100% $height;
+    }
+  } @else {
+    #{$selector} {
+      background-size: 0% $height;
+    }
+  }
+
+  @if ($include-is-active) {
+    &:hover,
+    &:focus,
+    &.-is-active {
+      #{$selector} {
+        @include _animate-underline-active($height, $inverted);
+      }
+    }
+  } @else {
+    &:hover,
+    &:focus {
+      #{$selector} {
+        @include _animate-underline-active($height, $inverted);
+      }
+    }
+  }
+}

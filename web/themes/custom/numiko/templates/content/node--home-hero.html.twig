@@ -1,0 +1,26 @@
+<div class='hero-promo'>
+  {% if has_value(content.field_hero_image) %}
+    <div class='hero-promo__media'>{{ content.field_hero_image }}</div>
+  {% endif %}
+
+  <div class='container'>
+    <div class='hero-promo__content'>
+      <div class='hero-promo__content-left'>
+        <h1 class='hero-promo__heading'>{{ content.field_hero_title }}</h1>
+      </div>
+      <div class='hero-promo__content-right'>
+        <p>
+          <span class="hero-promo__summary">
+            {{ content.field_hero_summary }}
+          </span>
+
+          <a href='{{ content.field_call_to_action[0]['#url']}}' class='button button--inverted'>
+            <span>{{content.field_call_to_action[0]['#title']}}</span>
+            <svg class='icon icon--stroke icon--arrow' focusable='false' role='presentation'><use xline: href="#sprite-icon-arrow"></use></svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{{ blocks.numiko_breadcrumbs }}

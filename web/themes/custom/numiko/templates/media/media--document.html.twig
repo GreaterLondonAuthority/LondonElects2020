@@ -1,0 +1,20 @@
+
+
+<div{{ attributes.addClass('media-download') }}>
+  <div class="cta-link">
+    <a href="{{ content.field_media_file | field }}" class="button" download aria-labelledby="{{ name|clean_class }}">
+      <svg class='icon icon--stroke' focusable="false" aria-role="presentation">
+        <use xlink:href='#sprite-icon-download'></use>
+      </svg>
+      <span>Download</span>
+    </a>
+  </div>
+  <div class="media-download__content" id="{{ name|clean_class }}">
+    <span>{{ name }}<span class="visually-hidden">:</span></span>
+    <div class="media-download__list">
+      <span>{{ file_size }}, {{ file_extension | upper }}</span>
+    </div>
+  </div>
+</div>
+
+

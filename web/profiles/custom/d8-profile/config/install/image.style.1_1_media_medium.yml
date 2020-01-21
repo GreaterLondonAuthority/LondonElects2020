@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_1_media_medium
+label: '1:1 Media - Medium (1000×1000)'
+effects:
+  33e92366-157b-44f2-b6a3-863aedc95a2b:
+    uuid: 33e92366-157b-44f2-b6a3-863aedc95a2b
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1000
+      height: 1000
+      crop_type: focal_point
+pipeline: local_binaries

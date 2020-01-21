@@ -1,0 +1,171 @@
+/*
+* Form defaults
+*/
+form {
+  @include clearfix;
+}
+
+fieldset {
+  @include clearfix;
+  border: 0;
+  padding: 0;
+}
+
+legend {
+  margin-bottom: 1em;
+}
+
+label {
+  display: block;
+  margin-bottom: 1em;
+}
+
+input,
+textarea,
+select {
+  display: block;
+  width: 100%;
+  outline: 0;
+  padding: 0.5em;
+  border-radius: 0;
+  border: 1px solid color('keyline');
+  background-color: color('white');
+}
+
+select {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  background-image: url('../img/svg/sprite-icon-chevron.svg');
+  background-repeat: no-repeat;
+  background-size: 1em 0.5em;
+  background-position: right 2em center;
+  line-height: auto;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+// Button type inputs
+input[type=button],
+input[type=submit],
+button {
+  width: auto;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0.5em;
+}
+
+// Checkboxes & Radios
+input[type=checkbox],
+input[type=radio] {
+  width: 15px;
+  height: 15px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid color('keyline');
+  position: static; // Adminial.css is messing with my FE forms
+  background-color: color('white');
+  margin-right: 0.5em;
+
+  + label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 0;
+  }
+}
+
+
+// Number input
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// Autofll (removes yellow background)
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 60px white inset;
+}
+
+// Placeholder text
+::-webkit-input-placeholder {
+  @include typi('small');
+}
+
+:-moz-placeholder {
+  @include typi('small');
+}
+
+::-moz-placeholder {
+  @include typi('small');
+}
+
+:-ms-input-placeholder {
+  @include typi('small');
+}
+
+::-ms-input-placeholder { /* Edge */
+  @include typi('small');
+}
+
+.form-item,
+.form-wrapper {
+  margin-bottom: 1.5em;
+}
+
+// red error border next to input
+
+input:not([type=checkbox]):not([type=radio]),
+select,
+textarea {
+  &.parsley-error {
+    border-left: 5px solid color('error');
+    margin-bottom: 1em;
+  }
+}
+
+
+
+// red inline error message
+
+.parsley-required,
+.parsley-type {
+  color: color('error');
+}
+
+.parsley-errors-list {
+  list-style-type: none;
+  margin: 0.5em 0;
+  padding: 0;
+}
+
+// if item is required, add visual indicator
+
+.form-required {
+  &:after {
+    content: '*';
+  }
+}
+
+// styling for confirmation message
+
+.webform-confirmation__message,
+.c-status-message {
+  margin-bottom: 1em;
+  padding: 1em;
+  border: 1px solid color('warning');
+
+  &.-error {
+    border: 1px solid color('error');
+  }
+}
+

@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slice_quote.field_citation
+    - field.field.paragraph.slice_quote.field_content
+    - field.field.paragraph.slice_quote.field_hide_title
+    - field.field.paragraph.slice_quote.field_title
+    - paragraphs.paragraphs_type.slice_quote
+  module:
+    - text
+id: paragraph.slice_quote.default
+targetEntityType: paragraph
+bundle: slice_quote
+mode: default
+content:
+  field_citation:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_content:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_hide_title:
+    weight: 1
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_title:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

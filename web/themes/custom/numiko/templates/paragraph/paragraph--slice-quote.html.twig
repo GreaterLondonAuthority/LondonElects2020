@@ -1,0 +1,15 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block content %}
+
+  <blockquote>
+    {{ content.field_content }}
+    
+    {% if has_value(content.field_citation) %}
+      <footer>
+        {{ content.field_citation }}
+      </footer>
+    {% endif %}
+  </blockquote>
+
+{% endblock %}

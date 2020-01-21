@@ -1,0 +1,28 @@
+<div class='hero'>
+  <div class='hero__content'>
+    <div class='container'>
+      <h1 class='hero__heading'>
+        Multiple polling stations were found for <strong>{{ content.postcode }}</strong>
+      </h1>
+      <a href="{{ return_path }}" class="button button--reverse hero__btn">
+        <svg class="icon icon--stroke">
+          <use xlink:href="#sprite-icon-arrow"></use>
+        </svg>
+        <span>Return to postcode search</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<section class="slice" aria-labelledby="polling-station-w-list">
+  <div class='container'>
+    <div class="polling-station">
+      <div class="polling-station__content">
+        <h2 id="polling-station-w-list" class="slice__title">Please select an address from this list:</h2>
+        {{ content.links }}
+      </div>
+    </div>
+  </div>
+</section>
+
+

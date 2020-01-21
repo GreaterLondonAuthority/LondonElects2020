@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_slices
+    - node.type.page
+    - paragraphs.paragraphs_type.accordion_item
+    - paragraphs.paragraphs_type.carousel_item
+  module:
+    - entity_reference_revisions
+id: node.page.field_slices
+field_name: field_slices
+entity_type: node
+bundle: page
+label: Slices
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      accordion_item: accordion_item
+      carousel_item: carousel_item
+    target_bundles_drag_drop:
+      slice_content:
+        weight: 4
+        enabled: false
+      slice_image:
+        weight: 5
+        enabled: false
+      slice_quote:
+        weight: 6
+        enabled: false
+      accordion_item:
+        enabled: true
+        weight: 9
+      slice_accordion:
+        weight: 10
+        enabled: false
+      slice_form:
+        weight: 12
+        enabled: false
+      carousel_item:
+        enabled: true
+        weight: 13
+      slice_carousel:
+        weight: 15
+        enabled: false
+      slice_teaser:
+        weight: 15
+        enabled: false
+      slice_views:
+        weight: 16
+        enabled: false
+      slice_gallery:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

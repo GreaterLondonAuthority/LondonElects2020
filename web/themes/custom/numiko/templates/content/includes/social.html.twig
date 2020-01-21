@@ -1,0 +1,46 @@
+<div class="slice">
+  <div class="container__pinch">
+    <div class="share">
+      <span class="share__title">Share this page</span>
+      <ul class="u-list-reset social-list">
+        <li class="social-list__item">
+          <a href="https://twitter.com/intent/tweet?text={{ node.label | url_encode }}&url={{ url('<current>') }}" target="_blank" class="social-list__hyperlink | js-skip-external-link" rel="noopener" title="Twitter">
+            <span class="visually-hidden">Twitter</span>
+            <svg class='icon icon--large icon--twitter' focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-twitter'></use></svg>
+          </a>
+        </li>
+        <li class="social-list__item">
+          <a href="http://www.facebook.com/share.php?u={{ url('<current>') }}" target="_blank" class="social-list__hyperlink | js-skip-external-link" rel="noopener" title="Facebook">
+            <span class="visually-hidden">Facebook</span>
+            <svg class='icon icon--large icon--facebook' focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-facebook'></use></svg>
+          </a>
+        </li>
+        <li class="social-list__item">
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url('<current>') }}" target="_blank" class="social-list__hyperlink | js-skip-external-link" rel="noopener" title="LinkedIn">
+            <span class="visually-hidden">LinkedIn</span>
+            <svg class='icon icon--large icon--linkedin' focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-linkedin'></use></svg>
+          </a>
+        </li>
+        <li class="social-list__item">
+          <a href="https://wa.me/?text={{ url('<current>') }}" class="social-list__hyperlink | js-skip-external-link" rel="noopener" title="WhatsApp">
+            <span class="visually-hidden">WhatsApp</span>
+            <svg class='icon icon--large icon--whatsapp' focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-whatsapp'></use></svg>
+          </a>
+        </li>
+        <li class="social-list__item">
+          <a href="mailto:?&amp;subject={{ node.label | url_encode }}&amp;Body=Information: {{ url('<current>') }}" class="social-list__hyperlink | js-skip-external-link" title="Email">
+            <span class="visually-hidden">Email</span>
+            <svg class='icon icon--large' focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-email'></use></svg>
+          </a>
+        </li>
+        <li class="social-list__item social-list__item--small-only">
+          <a id="js-share-sms" href="sms:?body={{ url('<current>') }}" class="social-list__hyperlink | js-skip-external-link" data-share-sms-url="{{ url('<current>') }}" title="SMS">
+            <span class="visually-hidden">SMS</span>
+            <svg class='icon icon--large' focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-sms'></use></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+

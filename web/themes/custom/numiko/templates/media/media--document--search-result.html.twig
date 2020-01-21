@@ -1,0 +1,18 @@
+
+<div {{ attributes.addClass('teaser teaser--search') }}>
+  <div class="teaser__content">
+    <h3 class="teaser__title">
+      <a href="{{ content.field_media_file | field }}" class="teaser__link" download>
+        <svg class='icon icon--stroke' focusable="false" aria-role="presentation">
+          <use xlink:href='#sprite-icon-download'></use>
+        </svg>
+        <span class="animate-underline">{{ name }}</span>
+        <span class="visually-hidden">:</span>
+      </a>
+    </h3>
+
+    <div class="teaser__desc">
+      <span>{{ file_size }}, <span class="visually-hidden">Download </span>{{ file_extension | upper }} </span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slice_content.field_content
+    - field.field.paragraph.slice_content.field_hide_title
+    - field.field.paragraph.slice_content.field_title
+    - paragraphs.paragraphs_type.slice_content
+  module:
+    - text
+id: paragraph.slice_content.default
+targetEntityType: paragraph
+bundle: slice_content
+mode: default
+content:
+  field_content:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_hide_title:
+    weight: 2
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

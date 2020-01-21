@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains teaser_summary_format.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function teaser_summary_format_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the teaser_summary_format module.
+    case 'help.page.teaser_summary_format':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Update input format for field_teaser_summary instances') . '</p>';
+      return $output;
+
+    default:
+  }
+}

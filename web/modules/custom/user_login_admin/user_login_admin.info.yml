@@ -1,0 +1,4 @@
+name: User Login Admin
+type: module
+description: Alter the user login screen to use the admin theme as all logged in users will be CMS users
+core: 8.x

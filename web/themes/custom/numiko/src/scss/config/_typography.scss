@@ -1,0 +1,121 @@
+/*
+* Accoutrement Type:
+* https://github.com/oddbird/accoutrement-type/
+*/
+$font-path: '../fonts/'; // Set the a path to your fonts directory
+$fonts: (
+  'base': ('name': 'Gill Sans', // Example font. Replace/delete as needed.
+    'stack': ('helvetica', 'arial', sans-serif),
+    // 'normal': 'open-sans/OpenSans-Regular',
+    // 'bold': 'open-sans/OpenSans-Bold',
+    // 'formats': ('woff2', 'woff')
+  ),
+  'heading': ('name': 'Gill SanS', // Example font. Replace/delete as needed.
+    'stack': ('helvetica', 'arial', sans-serif),
+    // 'normal': 'roboto/Roboto-Regular',
+    // 'bold': 'roboto/Roboto-Bold',
+    // 'formats': ('woff2', 'woff')
+  )
+);
+
+/*
+* Typi Font Sizes
+* https://www.npmjs.com/package/typi
+* @include typi('h1');
+*
+*/
+$base-font-size: 10px;
+$base-line-height: 1.5;
+$heading-line-height: 1.2;
+
+$typi: (
+  // Set the html size to 10px (so other font values are easier to calculate)
+  'base': (
+    null: ($base-font-size, $base-line-height)
+  ),
+  // Set body font-size to a more normal value
+  'body': (
+    null: (1.6em, $base-line-height), // 16px
+    medium: 2em // 20px
+  ),
+  'h1': (
+    null: (3.5em, $heading-line-height),
+    medium: (3.5em, $heading-line-height),
+    large: (4em, $heading-line-height),
+    huge: (4em, $heading-line-height),
+  ),
+  'h2': (
+    null: (3.0em, $heading-line-height),
+    medium: (3.0em, $heading-line-height),
+    large: (3.0em, $heading-line-height),
+    huge: (3.0em, $heading-line-height),
+  ),
+  'h3': (
+    null: (2.2em, $heading-line-height),
+    medium: (2.3em, $heading-line-height),
+    large: (2.5em, $heading-line-height),
+    huge: (2.5em, $heading-line-height),
+  ),
+  'h4': (
+    null: (2.1em, $heading-line-height),
+    medium: (2.2em, $heading-line-height),
+    large: (2.2em, $heading-line-height),
+    huge: (2.2em, $heading-line-height),
+  ),
+  'h5': (
+    null: (2.2em, $heading-line-height),
+  ),
+  'h6': (
+    null: (2.0em, $heading-line-height),
+  ),
+  'small': (
+    null: 1.6em,
+    large: 1.8em,
+  ),
+  'x-small': (
+    null: 1.6em
+  ),
+  'slogan': (
+    null: 1.5em,
+    medium: 2.5em
+  ),
+  'menu-primary': (
+    null: 2em,
+    large: 2em,
+  ),
+  'accordion-heading': (
+    null: 2em,
+    medium: 2.5em,
+  ),
+  'breadcrumb-text': (
+    null: (1.8em, 1.16),
+  ),
+  'hero-promo-heading': (
+    null: 3.5em,
+    large: 5.5em
+  ),
+  'election-menu-active': (
+    null: 2.5em,
+    medium: 2.7em,
+    large: 3.0em
+  ),
+  'h1-large': (
+    null: (4em, $heading-line-height),
+    medium: (4.5em, $heading-line-height),
+    large: (4.5em, $heading-line-height),
+    huge: (5.5em, $heading-line-height)
+  ),
+  'footer-menu': (
+    null: (1.8em, $base-line-height),
+  )
+);
+
+
+$fluid-type: (
+  'fluid-h1': (
+    null: (30px, 1.2),
+    medium: 30px,
+    large: (45px, 1.3),
+    huge: 75px
+  ),
+);

@@ -1,0 +1,13 @@
+{
+    "name": "polling_station_lookup",
+    "type": "drupal-module",
+    "description": "Democracy Club API module.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/polling_station_lookup",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/polling_station_lookup",
+        "source": "http://cgit.drupalcode.org/polling_station_lookup"
+    }
+}

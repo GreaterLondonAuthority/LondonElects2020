@@ -1,0 +1,162 @@
+<?php
+
+/**
+ * @file
+ * Contains form_ui.module..
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\form_ui\Factory\FieldElementRenderFactory;
+use Drupal\Core\Url;
+
+/**
+ * Get the configuration for form UI
+ */
+function form_ui_get_settings() {
+  return \Drupal::config('form_ui.settings');
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function form_ui_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  $config = form_ui_get_settings();
+  if ($config->get('fields.description_display')) {
+    $field_elements = FieldElementRenderFactory::getElementRenderArrayKeys($context['widget'], $element);
+    foreach ($field_elements as $field_element) {
+      if ($field_element == 'root') {
+        $element['#description_display'] = $config->get('fields.description_display');
+      } else {
+        $element[$field_element]['#description_display'] = $config->get('fields.description_display');
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function form_ui_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (isset($form['#entity_type'])) {
+    $config = form_ui_get_settings();
+    if ($config->get('edit_form.styling')) {
+      $form['#attached']['library'][] = 'form_ui/drupal.form_ui';
+    }
+    if ($config->get('redirects.edit_form.' . $form['#entity_type'])) {
+      foreach (array_keys($form['actions']) as $action) {
+        if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
+          $form['actions'][$action]['#submit'][] = 'form_ui_edit_redirect_submit';
+        }
+      }
+    }
+    if ($config->get('edit_form.novalidate.' . $form['#entity_type'])) {
+      $form['#attributes']['novalidate'] = 'novalidate';
+    }
+    if ($form['#entity_type'] == 'node') {
+      if ($config->get('edit_form.save_edit')) {
+        \Drupal::Service('form_ui.save_edit')->formAlter($form, $form_state, $form_id);
+      }
+    }
+    if ($form['#entity_type'] == 'comment') {
+      if ($author_mail_title = $config->get('comments.author_mail_title')) {
+        $form['author']['mail']['#title'] = t($author_mail_title);
+      }
+      if ($author_mail_description = $config->get('comments.author_mail_description')) {
+        if ($author_mail_description == '<none>') {
+          unset($form['author']['mail']['#description']);
+        } else {
+          $form['author']['mail']['#description'] = t($author_mail_description);
+        }
+      }
+      if ($save_label = $config->get('comments.save_label')) {
+        $form['actions']['submit']['#value'] = t($save_label);
+      }
+      if ($config->get('comments.hide_homepage_field')) {
+        $form['author']['homepage']['#access'] = FALSE;
+      }
+    }
+    if ($config->get('edit_form.hide_preview')) {
+      unset($form['actions']['preview']);
+    }
+  }
+  if ($form_id === 'entity_view_display_edit_form') {
+    $config = form_ui_get_settings();
+    if ($config->get('manage_display.display_field_ids')) {
+      foreach ($form['fields'] as $field_id => &$field) {
+        if (substr($field_id, 0, 6) === 'field_') {
+          $field['human_name']['#markup'] = $field['human_name']['#plain_text'] . ' <small>(' . $field_id . ')</small>';
+          unset($field['human_name']['#plain_text']);
+        }
+      }
+    }
+  }
+  if ($form_id === 'views_form_content_page_1') {
+    if (isset($form['header'])) {
+      $form['actions']['action'] = $form['header']['node_bulk_form']['action'];
+      $form['actions']['action']['#empty_option'] = '- Bulk action -';
+      $form['actions']['action']['#title'] = t('Bulk Actions');
+      $form['actions']['action']['#required'] = true;
+      $form['actions']['action']['#weight'] = -10;
+      unset($form['header']['node_bulk_form']);
+      $form['actions']['submit']['#value'] = t('Apply to selected');
+    }
+  }
+  if ($form_id === 'user_pass_reset') {
+    $config = form_ui_get_settings();
+    if ($config->get('user.one_time_login_enum')) {
+      $message = $form['message']['#markup']->getUntranslatedString();
+      $arguments = $form['message']['#markup']->getArguments();
+      $message = str_replace("for %user_name", "", $message);
+      $form['message']['#markup'] = t($message, $arguments);
+    }
+  }
+}
+
+function form_ui_preprocess_views_view(&$variables) {
+  if ($variables['id'] == 'media_browser') {
+    $variables['view']->element['#attached']['library'][] = 'form_ui/drupal.media_browser';
+  }
+}
+
+/**
+ * Submit handler for redirecting back to an entity collection
+ */
+function form_ui_edit_redirect_submit($form, FormStateInterface $form_state) {
+  $config = form_ui_get_settings();
+  $collection_link = $config->get('redirects.edit_form.' . $form['#entity_type']);
+  if ($redirect = \Drupal::pathValidator()->getUrlIfValid($collection_link)) {
+    $form_state->setRedirectUrl($redirect);
+  }
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function form_ui_toolbar_alter(&$items) {
+  $config = form_ui_get_settings();
+  if ($config->get('toolbar.home_button')) {
+    if (!\Drupal::service('router.admin_context')->isAdminRoute() && !\Drupal::service('path.matcher')->isFrontPage()) {
+      $items['home']['tab']['#title'] = t('Home');
+      $items['home']['#wrapper_attributes']['class'] = array_diff($items['home']['#wrapper_attributes']['class'], array('hidden'));
+    }
+  }
+  if ($config->get('toolbar.shortcuts_label')) {
+    $items['shortcuts']['tab']['#title'] = t($config->get('toolbar.shortcuts_label'));
+    $items['shortcuts']['#weight'] = -18;
+  }
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function form_ui_user_login($account) {
+  $config = form_ui_get_settings();
+  if ($config->get('redirects.editor_login') && $account->hasPermission('access content overview')) {
+    \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', \Drupal::url('system.admin_content'));
+  } elseif ($config->get('redirects.workbench_login') && $account->hasPermission('access workbench')) {
+    $workbench_exists = (count(\Drupal::service('router.route_provider')->getRoutesByNames(['workbench.content'])) === 1);
+    if ($workbench_exists) {
+      \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', \Drupal::url('workbench.content'));
+    }
+  }
+}

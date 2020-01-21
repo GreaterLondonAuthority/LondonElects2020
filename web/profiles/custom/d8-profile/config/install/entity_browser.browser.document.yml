@@ -1,0 +1,41 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.table_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: document
+label: Document
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select document(s)'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  94adca31-131c-41da-9f1c-1c34ae2f258a:
+    settings:
+      view: table_entity_browser
+      view_display: document_browser
+      submit_text: 'Select documents'
+      auto_select: false
+    uuid: 94adca31-131c-41da-9f1c-1c34ae2f258a
+    weight: 1
+    label: 'Existing documents'
+    id: view
+  8b48d42a-e77f-427f-be1d-cb758f7d84ed:
+    settings:
+      entity_type: media
+      bundle: document
+      form_mode: default
+      submit_text: 'Save document'
+    uuid: 8b48d42a-e77f-427f-be1d-cb758f7d84ed
+    weight: 2
+    label: 'Add document'
+    id: entity_form

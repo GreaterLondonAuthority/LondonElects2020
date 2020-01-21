@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.media_browser
+  module:
+    - entity_browser_entity_form
+    - views
+name: media_field
+label: Media
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: 'Select media'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  2642a29c-a5be-4557-bcaa-a9053a911931:
+    settings:
+      view: media_browser
+      view_display: entity_browser_1
+      submit_text: 'Select entities'
+      auto_select: false
+    uuid: 2642a29c-a5be-4557-bcaa-a9053a911931
+    weight: 1
+    label: 'Existing media'
+    id: view
+  a1e7d821-aac6-400f-bf58-9df489514476:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
+      submit_text: 'Save image'
+    uuid: a1e7d821-aac6-400f-bf58-9df489514476
+    weight: 2
+    label: 'New image'
+    id: entity_form
+  c3506a93-43a0-4e19-892e-426c21905779:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: default
+      submit_text: 'Save video'
+    uuid: c3506a93-43a0-4e19-892e-426c21905779
+    weight: 3
+    label: 'New video'
+    id: entity_form

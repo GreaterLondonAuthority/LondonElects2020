@@ -1,0 +1,67 @@
+/*
+* Author: Adam Robinson
+* Email: adamr@numiko.com
+* Tweaked fom poly-fluid-sizing https://www.smashingmagazine.com/2017/05/fluid-responsive-typography-css-poly-fluid-sizing/
+* Dependencies: 
+*/
+@import 'private/linear-interpolation';
+@import 'private/type-check';
+
+@mixin fluid-type($key, $map: $fluid-type) {
+  $fluid-map: map-get($map, $key);
+  $length: length(map-keys($fluid-map));
+  $breakpoint-keys: map-keys($fluid-map);  // e.g. null, medium, large
+  $value-1: map-get($fluid-map, nth($breakpoint-keys, 1)); // e.g. 40px
+
+  // Minumum size and line-height
+  font-size: nth($value-1, 1);
+  @if is-list($value-1) {
+    line-height: nth($value-1, 2);
+  } 
+ 
+  // Media Query output
+  @if ($length > 2) {
+
+    @for $i from 1 through ($length - 1) {
+      $breakpoint-key: nth($breakpoint-keys, $i);
+
+      @if ($breakpoint-key == null) {
+        $breakpoint-key: 'tiny'
+      }
+
+      @include media('>=#{$breakpoint-key}') {
+        $value-1: map-get($fluid-map, nth($breakpoint-keys, $i)); // e.g. 40px
+        $value-2: map-get($fluid-map, nth($breakpoint-keys, ($i + 1))); // e.g. 50px
+        $breakpoint-1: map-get($breakpoints, $breakpoint-key);  // e.g. 320px
+        $breakpoint-2: map-get($breakpoints, nth($breakpoint-keys, ($i + 1))); // e.g. 1024px
+        $font-size-1: $value-1;
+        $font-size-2: $value-2;
+        $line-height-1: null;
+        $line-height-2: null;
+      
+        @if is-list($value-1) {
+          $font-size-1: nth($value-1, 1); 
+          $line-height-1: nth($value-1, 2);
+        }
+
+        @if is-list($value-2) {
+          $font-size-2: nth($value-2, 1); 
+          $line-height-2: nth($value-2, 2);
+        }
+
+        // If values are not equal, perform linear interpolation
+        @if ($font-size-1 != $font-size-2) {
+          font-size: linear-interpolation(($breakpoint-1: $font-size-1, $breakpoint-2: $font-size-2));
+        } @else {
+          font-size: $font-size-1;
+        }
+
+        line-height: $line-height-1;
+      }
+    }
+  }
+
+  @include media('>=#{nth($breakpoint-keys, $length)}') {
+    font-size: map-get($fluid-map, nth($breakpoint-keys, $length));
+  }
+}

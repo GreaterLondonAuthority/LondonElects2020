@@ -1,0 +1,7 @@
+name: Menu Block View Modes
+type: module
+description: Extend Menu Block with functionality to output teasers and other view modes instead of labels
+core: 8.x
+package: Custom
+dependencies:
+  - menu_block

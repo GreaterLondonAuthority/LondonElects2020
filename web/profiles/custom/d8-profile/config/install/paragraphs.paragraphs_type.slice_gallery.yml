@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_gallery
+label: 'Slice: Gallery'
+icon_uuid: null
+description: 'Add a gallery slice'
+behavior_plugins: {  }

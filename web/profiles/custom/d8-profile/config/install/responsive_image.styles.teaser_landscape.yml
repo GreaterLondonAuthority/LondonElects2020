@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.16_9_media_large
+    - image.style.16_9_media_medium
+    - image.style.16_9_media_small
+id: teaser_landscape
+label: 'Teaser Landscape'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: '(min-width:1280px) 33.3vw, 100vw'
+      sizes_image_styles:
+        - 16_9_media_large
+        - 16_9_media_medium
+        - 16_9_media_small
+breakpoint_group: responsive_image
+fallback_image_style: 16_9_media_small

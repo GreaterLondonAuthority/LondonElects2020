@@ -1,0 +1,61 @@
+uuid:
+  -
+    value: 1a1353dd-fa94-4400-a355-bf9027e598cf
+langcode:
+  -
+    value: en
+type:
+  -
+    target_id: search_header
+    target_type: user_message_type
+    target_uuid: 341d4e04-3741-4c7c-82b7-fd72e05e74c5
+    url: /admin/structure/user_message_type/search_header
+revision_created:
+  -
+    value: '2019-09-06T11:27:19+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_user:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+revision_log_message: {  }
+status:
+  -
+    value: true
+user_id:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+name:
+  -
+    value: 'Search header'
+created:
+  -
+    value: '2019-09-06T11:27:19+00:00'
+    format: 'Y-m-d\TH:i:sP'
+changed:
+  -
+    value: '2019-09-06T12:50:01+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_translation_affected:
+  -
+    value: true
+default_langcode:
+  -
+    value: true
+metatag:
+  value:
+    title: 'Single Export | London Elects'
+    canonical_url: 'https://elects.docker:8081/admin/config/development/content/export/single'
+field_message:
+  -
+    value: 'Search the entire site for a word or phrase.'
+field_title:
+  -
+    value: 'Find what you''re looking for'
+_content_sync:
+  entity_type: user_message
+  entity_dependencies:
+    user:
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676

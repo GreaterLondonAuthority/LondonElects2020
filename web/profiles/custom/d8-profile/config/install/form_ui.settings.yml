@@ -1,0 +1,18 @@
+edit_form:
+  styling: 1
+  form_error_handler: 0
+  hide_preview: 1
+redirects:
+  editor_login: 0
+toolbar:
+  home_button: 1
+  shortcuts_label: ''
+fields:
+  description_display: before
+user:
+  one_time_login_enum: 1
+comments:
+  save_label: ''
+  author_mail_title: ''
+  author_mail_description: ''
+  hide_homepage_field: 0

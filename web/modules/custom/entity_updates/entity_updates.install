@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Update mismatched entity field definition.
+ */
+function entity_updates_install() {
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  $entity_definition_update_manager->updateFieldStorageDefinition($entity_definition_update_manager->getFieldStorageDefinition('field_turnout', 'node'));
+  $entity_definition_update_manager->updateFieldStorageDefinition($entity_definition_update_manager->getFieldStorageDefinition('field_vote_share', 'node'));
+}

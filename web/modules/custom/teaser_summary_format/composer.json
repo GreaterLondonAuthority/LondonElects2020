@@ -1,0 +1,13 @@
+{
+    "name": "teaser_summary_format",
+    "type": "drupal-module",
+    "description": "hook_post_update_NAME implementation for field_teaser_summary",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/teaser_summary_format",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/teaser_summary_format",
+        "source": "http://cgit.drupalcode.org/teaser_summary_format"
+    }
+}

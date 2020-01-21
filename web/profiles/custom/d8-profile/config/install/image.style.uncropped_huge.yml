@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: uncropped_huge
+label: 'Uncropped - Huge (1600w)'
+effects:
+  84d6c94e-32fc-4ff1-929d-e19f2c2d2a6e:
+    uuid: 84d6c94e-32fc-4ff1-929d-e19f2c2d2a6e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1600
+      height: null
+      upscale: false
+pipeline: local_binaries

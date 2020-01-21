@@ -1,0 +1,5 @@
+name: Icon Menu
+type: module
+description: Add an icon to menu items
+core: 8.x
+package: Menu

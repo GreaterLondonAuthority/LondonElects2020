@@ -1,0 +1,7 @@
+.visually-hidden {
+  @include visuallyhidden;
+}
+
+.visually-hidden-focusable {
+  @include visuallyhidden($focusable: true);
+}

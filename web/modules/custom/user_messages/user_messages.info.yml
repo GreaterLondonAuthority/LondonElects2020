@@ -1,0 +1,5 @@
+name: 'User messages'
+type: module
+description: 'User messages'
+core: 8.x
+package: 'Numiko'

@@ -1,0 +1,66 @@
+uuid:
+  -
+    value: bf70edeb-90d3-4d4b-937a-e052f3f276c7
+langcode:
+  -
+    value: en
+type:
+  -
+    target_id: alert_bar
+    target_type: user_message_type
+    target_uuid: e52b764b-9bea-4543-9ac3-e980a842afc6
+    url: /admin/structure/user_message_type/alert_bar
+revision_created:
+  -
+    value: '2019-09-10T10:15:20+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_user:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+revision_log_message: {  }
+status:
+  -
+    value: true
+user_id:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+name:
+  -
+    value: 'Cookie message'
+created:
+  -
+    value: '2019-09-10T10:15:20+00:00'
+    format: 'Y-m-d\TH:i:sP'
+changed:
+  -
+    value: '2019-09-10T10:15:20+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_translation_affected:
+  -
+    value: true
+default_langcode:
+  -
+    value: true
+metatag:
+  value:
+    title: 'Single Export | London Elects'
+    canonical_url: 'https://elects.docker:8081/admin/config/development/content/export/single'
+field_button_text:
+  -
+    value: 'OK, got it'
+field_content:
+  -
+    value: 'We use cookies to ensure that we give you the best experience on our website.'
+field_optional_link:
+  -
+    uri: 'internal:#'
+    title: 'Read more about our cookie policy'
+    options: {  }
+_content_sync:
+  entity_type: user_message
+  entity_dependencies:
+    user:
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676

@@ -1,0 +1,9 @@
+services:
+  jump_link.list.factory.node:
+    class: Drupal\slice_jump_links\Factory\NodeJumpLinkListFactory
+  jump_link.factory.entity:
+    class: Drupal\slice_jump_links\Factory\EntityJumpLinkFactory
+  jump_link_button.factory.entity:
+    class: Drupal\slice_jump_links\Factory\EntityJumpLinkButtonFactory
+  jump_link.anchor.factory:
+    class: Drupal\slice_jump_links\Factory\JumpLinkAnchorFactory

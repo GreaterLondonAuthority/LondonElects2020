@@ -1,0 +1,10 @@
+entity.user_message.add_form:
+  route_name: entity.user_message.add_page
+  title: 'Add User message'
+  appears_on:
+    - entity.user_message.collection
+entity.user_message_type.add_form:
+  route_name: entity.user_message_type.add_form
+  title: 'Add User message type'
+  appears_on:
+    - entity.user_message_type.collection

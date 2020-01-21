@@ -1,0 +1,78 @@
+.social-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  @include media('<medium') {
+    flex-wrap: wrap;
+  }
+}
+
+.social-list__item {
+  display: flex;
+
+  @include media('<medium') {
+    flex-basis: percentage(1 / 3);
+
+    &:nth-child(-n+3) { // first three
+      margin-bottom: 1.4rem;
+    }
+  }
+
+  @include media('>=medium') {
+    &:not(:last-of-type) {
+      margin-right: 1.4rem;
+    }
+  }
+}
+
+.social-list__item--small-only {
+  @include media('>=medium') {
+    display: none;
+  }
+}
+
+.social-list__hyperlink {
+  display: flex;
+  transition: $base-transition-speed;
+  
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+
+    .icon {
+      stroke: none;
+    }
+    
+    .icon--twitter {
+      fill: color('twitter');
+    }
+  
+    .icon--facebook {
+      fill: color('facebook');
+    }
+
+    .icon--youtube {
+      fill: color('youtube');
+    }
+
+    .icon--linkedin {
+      fill: color('linkedin');
+    }
+
+    .icon--whatsapp {
+      fill: color('whatsapp');
+    }
+  }
+}
+
+
+.twitter-timeline {
+  height: 300px !important;
+  overflow-y: scroll;
+
+  @include media('>=medium') {
+    height: 100% !important;
+    overflow-y: auto;
+  }
+}

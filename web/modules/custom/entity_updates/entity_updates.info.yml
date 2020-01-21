@@ -1,0 +1,5 @@
+name: 'Entity updates'
+type: module
+description: 'Update mismatched entities.'
+core: 8.x
+package: 'Numiko'

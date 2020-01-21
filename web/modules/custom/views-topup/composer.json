@@ -1,0 +1,9 @@
+{
+  "name": "numiko/views-topup",
+  "type": "drupal-module",
+  "description": "Add a Top-up display block to views - allowing you to top-up one view block from another",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": {}
+}

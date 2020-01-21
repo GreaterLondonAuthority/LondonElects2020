@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view
+    - paragraphs.paragraphs_type.slice_views
+  module:
+    - entity_reference_view_display
+id: paragraph.slice_views.field_view
+field_name: field_view
+entity_type: paragraph
+bundle: slice_views
+label: View
+description: 'Select a view of content you would like to display in this slice'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_values:
+    'content_recent:block_1': 'content_recent:block_1'
+    'archive:block_1': 0
+    'who_s_new:block_1': 0
+    'who_s_online:who_s_online_block': 0
+    'workbench_current_user:block_1': 0
+    'workbench_edited:block_1': 0
+    'workbench_recent_content:block_1': 0
+field_type: view_display_reference_item

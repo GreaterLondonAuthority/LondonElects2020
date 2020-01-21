@@ -1,0 +1,64 @@
+// .accordion-item {} BEM block
+
+.accordion-item__heading {
+  position: relative;
+  margin: 0;
+}
+
+.accordion-item__button {
+  display: block;
+  padding: 2.5rem 3rem;
+  padding-right: 6rem;
+  border-top: 1px solid color('keyline-dark');
+  width: 100%;
+  @include typi('h3');
+  font-weight: normal;
+  @include animate-underline;
+  transition: background-color $base-transition-speed ease;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    background-color: color('white');
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &.is-active {
+    background-color: color('white');
+
+    .icon {
+      transform: rotate(270deg);
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: calc(50% - 1.4rem);
+    right: 2.4rem;
+    width: 2.8rem;
+    height: 2.8rem;
+    stroke: color('grey-dark');
+    transform: rotate(90deg);
+    transition: transform $base-transition-speed ease;
+  }
+}
+
+.accordion-item__content-container {
+  &:last-of-type {
+    border-bottom: 1px solid color('keyline-dark');
+  }
+}
+
+.accordion-item__content {
+  display: none; // initial visibility
+  padding: 2.5rem 3rem;
+  background-color: color('black');
+  color: color('white');
+
+  > *:last-child {
+    margin-bottom: 0; // remove any margin-bottom from last direct descendant
+  }
+}

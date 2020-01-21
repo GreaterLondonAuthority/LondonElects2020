@@ -1,0 +1,39 @@
+.user-logged-in .form-wrapper .form-item>div, .adminimal .form-wrapper .form-item>label {
+  padding-bottom: 8px;
+}
+
+.user-logged-in fieldset:not(.fieldgroup) {
+  padding-top: 40px;
+} 
+.user-logged-in fieldset:not(.fieldgroup) legend {
+  padding-top: 8px;
+  font-size: 1.4em;
+} 
+.user-logged-in .form-autocomplete::-ms-clear {
+  width : 0;
+  height: 0;
+}
+
+/* Wide screens */
+@media
+  screen and (min-width: 780px),
+  (orientation: landscape) and (min-device-height: 780px) {
+
+  .layout-region-node-main,
+  .layout-region-node-footer {
+    width: 75%;
+  }
+
+  .layout-region-node-secondary {
+    width: 25%;
+  }
+}
+
+/*
+* Stop 'select media' button getting hid on small screens
+*/
+@media screen and (min-width: 780px) {
+    #entity_browser_iframe_media {
+      max-height: 60vh;
+    }
+}

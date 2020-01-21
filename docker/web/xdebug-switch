@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ $# -gt 0 ] && (($1)) ; then
+
+  ln -sf /usr/local/etc/php/conf-available/docker-php-ext-xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+  ln -sf /usr/local/etc/php/conf-available/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
+
+else
+
+  if [ -e /usr/local/etc/php/conf.d/xdebug.ini ]; then
+        rm -f /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
+        rm -f /usr/local/etc/php/conf.d/xdebug.ini
+  fi
+
+fi

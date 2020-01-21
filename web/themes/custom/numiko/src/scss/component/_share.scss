@@ -1,0 +1,18 @@
+
+.share {
+  background-color: color('white');
+  padding: $spacing-xs;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  @include media('>=medium') {
+    padding: $spacing-s;
+    justify-content: space-between;
+  }
+}
+
+.share__title {
+  margin-right: 2rem;
+}

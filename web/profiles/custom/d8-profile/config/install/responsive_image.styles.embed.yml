@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.uncropped_huge
+    - image.style.uncropped_large
+    - image.style.uncropped_medium
+    - image.style.uncropped_small
+    - image.style.uncropped_tiny
+id: embed
+label: Embed
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - uncropped_huge
+        - uncropped_large
+        - uncropped_medium
+        - uncropped_small
+        - uncropped_tiny
+breakpoint_group: responsive_image
+fallback_image_style: uncropped_tiny

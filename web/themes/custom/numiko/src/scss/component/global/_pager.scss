@@ -1,0 +1,56 @@
+.pager {
+  margin: 4rem auto;
+  width: 100%;
+  text-align: center;
+}
+
+.pager__items {
+  display: inline-block;
+  background-color: color('white');
+  padding: 2rem 3rem;
+}
+
+.pager__item {
+  padding: 0 5px;
+  display: inline-block;
+
+  a {
+    @include animate-underline;
+    display: block;
+    padding: 0 8px;
+    transition: 0.2s ease-in-out;
+    border-radius: 50%;
+
+    @include media('>=large') {
+      padding: 0 10px;
+    }
+  }
+
+  &.is-active {
+    a {
+      background-color: color('black');
+      color: color('white');
+
+      &:hover, &:focus {
+        background-color: color('grey-base-secondary');
+      }
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.pager__item--last,
+.pager__item--first {
+  a {
+    padding: 0;
+    border-radius: initial;
+
+    &:hover, &:focus {
+      background-color: color('white');
+      color: color('base');
+    }
+  }
+}

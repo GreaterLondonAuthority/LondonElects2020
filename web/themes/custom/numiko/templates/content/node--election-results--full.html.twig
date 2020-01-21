@@ -1,0 +1,43 @@
+
+<div{{ attributes }}>
+
+  <div{{ content_attributes }}>
+    <div class="container__pinch">
+      <div class="slice slice-w-border">
+        <div class="l-grid l-grid--2-col l-grid--w-h-gutter l-grid--w-v-gutter">
+          <div class="l-grid__item">
+            {{ content.field_image }}
+          </div>
+          <div class="l-grid__item">
+            <div class="result">
+              <h2 class="result__title"><span>{{ content.field_additional_text }}</span>{{ content.field_text }}</h2>
+              <p>{{ content.field_party }}</p>
+              <div class="result__stats">
+                {% if has_value(content.field_vote_share) %}
+                  <div class="result__stats-inner">
+                    <span>{{ content.field_vote_share }}</span>
+                    <p>Overall vote share</p>
+                  </div>
+                {% endif %}
+                {% if has_value(content.field_turnout) %}
+                  <div class="result__stats-inner">
+                    <span>{{ content.field_turnout }}</span>
+                    <p>Voter turnout</p>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{ content.field_slices }}
+
+  {% block content_footer %}
+    {% include '@numiko/content/includes/social.html.twig' %}
+  {% endblock content_footer %}
+
+</div>
+

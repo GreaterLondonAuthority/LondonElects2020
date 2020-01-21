@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_items
+    - paragraphs.paragraphs_type.carousel_item
+    - paragraphs.paragraphs_type.slice_carousel
+  module:
+    - entity_reference_revisions
+id: paragraph.slice_carousel.field_items
+field_name: field_items
+entity_type: paragraph
+bundle: slice_carousel
+label: 'Carousel items'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      carousel_item: carousel_item
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 12
+        enabled: false
+      carousel_item:
+        enabled: true
+        weight: 13
+      slice_accordion:
+        weight: 14
+        enabled: false
+      slice_carousel:
+        weight: 15
+        enabled: false
+      slice_content:
+        weight: 16
+        enabled: false
+      slice_form:
+        weight: 17
+        enabled: false
+      slice_gallery:
+        weight: 18
+        enabled: false
+      slice_image:
+        weight: 19
+        enabled: false
+      slice_quote:
+        weight: 20
+        enabled: false
+      slice_teaser:
+        weight: 21
+        enabled: false
+      slice_views:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

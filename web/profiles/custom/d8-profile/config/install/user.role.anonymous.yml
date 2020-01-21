@@ -1,0 +1,19 @@
+langcode: en
+status: true
+dependencies: {  }
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'search content'
+  - 'use search_api_autocomplete for search'
+  - 'use text format restricted_html'
+  - 'view media'
+  - 'view paragraph content slice_content'
+  - 'view paragraph content slice_image'
+  - 'view paragraph content slice_quote'
+  - 'view the administration theme'

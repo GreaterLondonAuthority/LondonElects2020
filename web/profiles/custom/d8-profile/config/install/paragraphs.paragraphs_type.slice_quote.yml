@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_quote
+label: 'Slice: Quote'
+icon_uuid: null
+description: 'Add a quote slice'
+behavior_plugins: {  }

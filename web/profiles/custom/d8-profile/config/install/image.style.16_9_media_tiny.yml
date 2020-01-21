@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_media_tiny
+label: '16:9 Media - Tiny (400x225) '
+effects:
+  6cd2adc6-adff-4167-864a-8ce661cf56c2:
+    uuid: 6cd2adc6-adff-4167-864a-8ce661cf56c2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 400
+      height: 225
+      crop_type: focal_point
+pipeline: local_binaries

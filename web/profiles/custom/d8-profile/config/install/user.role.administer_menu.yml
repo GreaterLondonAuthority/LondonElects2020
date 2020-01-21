@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: administer_menu
+label: 'Administer menus'
+weight: -3
+is_admin: null
+permissions:
+  - 'administer menu'

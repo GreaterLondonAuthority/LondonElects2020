@@ -1,0 +1,10 @@
+/*
+* Getter for typi map values
+*/
+@function typi-size($size, $breakpoint) {
+  @return nth( map-deep-get($typi, $size, $breakpoint), 1);
+}
+
+@function typi-lineheight($size, $breakpoint) {
+  @return nth( map-deep-get($typi, $size, $breakpoint), 2);
+}

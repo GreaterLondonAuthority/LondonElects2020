@@ -1,0 +1,26 @@
+polling_station_lookup.postcode_lookup:
+  path: '/polling-stations/{postcode}'
+  defaults:
+    _controller: '\Drupal\polling_station_lookup\Controller\PollingStationLookupController::postcodeLookup'
+    _title_callback: '\Drupal\polling_station_lookup\Controller\PollingStationLookupController::getTitle'
+    postcode: NULL
+  requirements:
+    _permission: 'access content'
+
+polling_station_lookup.address_lookup:
+  path: '/polling-stations/address/{postcode}/{slug}'
+  defaults:
+    _controller: '\Drupal\polling_station_lookup\Controller\PollingStationLookupController::addressLookup'
+    _title_callback: '\Drupal\polling_station_lookup\Controller\PollingStationLookupController::getTitle'
+  requirements:
+    _permission: 'access content'
+
+polling_station_lookup.config_form:
+  path: '/admin/config/polling_station_lookup/config'
+  defaults:
+    _form: '\Drupal\polling_station_lookup\Form\ConfigForm'
+    _title: 'ConfigForm'
+  requirements:
+    _permission: 'configure polling station lookup'
+  options:
+    _admin_route: TRUE

@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ *
+ * Custom input filter and supporting hooks (just a form_alter).
+ * *Heavily* based on Drupal's FilterCaption class
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Component\Utility\Html;
+
+define('CAPTION_FIELD_TYPE', 'textfield');
+define('CAPTION_FIELD_MAXLENGTH', 128);
+
+/**
+ * Implements hook_help().
+ */
+function custom_caption_filter_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_caption_filter module.
+    case 'help.page.custom_caption_filter':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Insert caption into media element where we want it') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ *
+ * Add caption field to entity embed form at it's last step. Based on what happens in
+ * EntityEmbedDialog::buildEmbedStep()
+ */
+function custom_caption_filter_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  if ($form_id == 'entity_embed_dialog' && $form_state->getStorage()['step'] == 'embed') {
+
+    // Don't display a caption field if we've made our own (i.e. for videos)
+    if (!$form_state->getStorage()['entity']->hasField('field_caption')) {
+
+      $editor = $form_state->get('editor');
+      $entity_element = $form_state->get('entity_element');
+
+      $config = \Drupal::config('custom_caption_filter.settings');
+
+      // When Drupal core's filter_caption is being used, the text editor may
+      // offer the ability to add a caption.
+      if ($editor->getFilterFormat()->filters('embedded_caption_filter')->status) {
+        $form['attributes']['data-caption'] = array(
+          '#title' => t('Caption'),
+          '#type' => $config->get('caption_field.type') ?: CAPTION_FIELD_TYPE,
+          '#maxlength' => $config->get('caption_field.maxlength') ?: CAPTION_FIELD_MAXLENGTH,
+          '#default_value' => isset($entity_element['data-caption']) ? Html::decodeEntities(
+            $entity_element['data-caption']
+          ) : '',
+          '#element_validate' => array('::escapeValue'),
+        );
+      }
+
+    }
+
+  }
+
+}

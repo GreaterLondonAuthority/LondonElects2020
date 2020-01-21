@@ -1,0 +1,46 @@
+<?php
+/**
+ * Update input format on teaser summary fields.
+ */
+function teaser_summary_format_install() {
+  /**
+   * Find all nodes with a teaser summary field where the input format is not
+   * 'unformatted_text' and update with the correct value.
+   */
+  $format = 'unformatted_text';
+
+  $nids = Drupal::entityQuery('node')
+    ->condition('field_teaser_summary.format', $format, '<>')
+    ->execute();
+  $nids = array_keys(array_flip($nids));
+
+  $nodes = Drupal\node\Entity\Node::loadMultiple($nids);
+  $count = 0;
+  foreach ($nodes as $node) {
+    $node->field_teaser_summary->format = $format;
+    $node->save();
+    $count++;
+  }
+}
+
+/**
+ * Update hero summary field input format
+ */
+function teaser_summary_format_update_8101(&$sandbox) {
+  $format = 'unformatted_text';
+
+  $nids = Drupal::entityQuery('node')
+    ->condition('field_hero_summary.format', $format, '<>')
+    ->execute();
+  $nids = array_keys(array_flip($nids));
+
+  $nodes = Drupal\node\Entity\Node::loadMultiple($nids);
+  $count = 0;
+  foreach ($nodes as $node) {
+    $node->field_teaser_summary->format = $format;
+    $node->save();
+    $count++;
+  }
+
+  \Drupal::messenger()->addMessage('Module teaser_summary_format Update # 8101 () was executed successfully.');
+}

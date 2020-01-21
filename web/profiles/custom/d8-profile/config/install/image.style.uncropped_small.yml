@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: uncropped_small
+label: 'Uncropped - Small (750w)'
+effects:
+  7f916522-289a-4182-af0e-0580f0a91ed2:
+    uuid: 7f916522-289a-4182-af0e-0580f0a91ed2
+    id: image_scale
+    weight: 1
+    data:
+      width: 750
+      height: null
+      upscale: false
+pipeline: local_binaries

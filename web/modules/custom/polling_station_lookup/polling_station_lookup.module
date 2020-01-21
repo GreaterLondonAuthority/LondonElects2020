@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains polling_station_lookup.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\Core\Form\FormStateInterface;
+
+
+/**
+ * Implements hook_help().
+ */
+function polling_station_lookup_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the polling_station_lookup module.
+    case 'help.page.polling_station_lookup':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Democracy Club API module.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function polling_station_lookup_theme() {
+  return [
+    'polling_station_lookup' => [
+      'variables' => [
+        'content' => NULL,
+        'return_path' => NULL,
+        'gmap_src' => NULL
+      ],
+    ],
+    'polling_station_lookup_address_list' => [
+      'variables' => [
+        'content' => NULL,
+        'return_path' => NULL
+      ],
+    ],
+  ];
+}
+

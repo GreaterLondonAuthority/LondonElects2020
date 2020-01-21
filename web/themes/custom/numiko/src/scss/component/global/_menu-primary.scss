@@ -1,0 +1,128 @@
+/*
+* Global menu reset
+*/
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/*
+* Primary menu
+*/
+.menu-primary-revealer {
+  display: none;
+
+  @include media('>=large') {
+    display: block;
+  }
+}
+
+.menu-primary {
+  display: flex;
+  background-color: color('grey-dark');
+  color: color('white');
+  flex-flow: column nowrap;
+  @include typi('menu-primary');
+
+  @include media('>=large') {
+    background-color: color('white');
+    color: color('base');
+  }
+  
+  @include media('<large') {
+    @include container-bleed;
+  }
+
+  @include media('>=large') {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  &.is-active {
+    display: flex;
+  }
+
+  .menu {
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include media('>=large') {
+      flex-flow: row nowrap;
+    } 
+  }
+
+  .menu__item {
+
+    @include media('<large') {
+      border-bottom: 1px solid rgba(color('black'), 0.4);
+    }
+
+    @include media('>=large') {
+      position: relative;
+    }
+
+    &.menu__item--search {
+      @include media('>=large') {
+        display: none;
+      }
+    }
+  }
+
+  .menu__link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex: 1;
+    padding: 2rem; 
+    justify-content: center;
+    align-items: center;
+    @include animate-underline;
+
+    @include media('>=large') {
+      text-align: center;
+    }
+
+    @include media(">=huge") {
+      display: block;
+      position: relative;
+    }
+
+    .icon {
+      margin-left: 0.5em;
+    }
+  }
+ 
+}
+
+// Menu overlay
+body { 
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,1);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease 0s, z-index 0s ease 0s;
+
+    @include media('>=large') {
+      display: none!important; // Dont ever show on desktop
+    }
+  }
+
+  &.menu-active {
+    &:before {
+      opacity: 1;
+      z-index: 0;
+    }
+  }
+}
+

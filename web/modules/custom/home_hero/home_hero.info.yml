@@ -1,0 +1,5 @@
+name: 'Home Hero'
+type: module
+description: 'Hide "Home Hero" fields on edit pages not set as the site homepage.'
+core: 8.x
+package: 'Numiko'

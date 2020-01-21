@@ -1,0 +1,37 @@
+
+.teaser--search {
+  margin-bottom: $spacing-m;
+
+  .teaser__content {
+    border-top: 0;
+    padding-bottom: $spacing-s;
+
+    @include media('>=large') {
+      display: flex;
+      align-items: center;
+      margin-left: -$spacing-m;
+    }
+  }
+
+  .teaser__title {
+    display: flex;
+
+    .icon {
+      margin-right: 1rem;
+    }
+    
+    @include media('>=large') {
+      width: 40%;
+      padding-left: $spacing-m;
+      border-right: 1px solid color('keyline');
+      margin-bottom: 0;
+    }
+  }
+
+  .teaser__desc {
+    @include media('>=large') {
+      width: 60%;
+      padding-left: $spacing-m;
+    }
+  }
+}

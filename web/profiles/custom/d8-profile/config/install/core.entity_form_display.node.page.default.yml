@@ -1,0 +1,267 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image
+    - field.field.node.page.field_hero_image
+    - field.field.node.page.field_image
+    - field.field.node.page.field_meta
+    - field.field.node.page.field_related_content
+    - field.field.node.page.field_scheduled_publish
+    - field.field.node.page.field_slices
+    - field.field.node.page.field_tags
+    - field.field.node.page.field_teaser_summary
+    - node.type.page
+  module:
+    - content_moderation
+    - entity_browser
+    - field_group
+    - metatag
+    - paragraphs
+    - path
+    - scheduled_publish
+    - text
+third_party_settings:
+  field_group:
+    group_content:
+      children:
+        - title
+        - body
+        - field_slices
+      parent_name: group_page
+      weight: 21
+      label: '📄 Content'
+      format_type: tab
+      format_settings:
+        label: '📄 Content'
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+    group_page:
+      children:
+        - group_content
+        - group_hero
+        - group_content_details
+        - group_teaser
+        - group_related_content
+      parent_name: ''
+      weight: 0
+      label: Page
+      format_type: tabs
+      format_settings:
+        direction: vertical
+        classes: ''
+        id: ''
+    group_teaser:
+      children:
+        - field_image
+        - field_teaser_summary
+      parent_name: group_page
+      weight: 24
+      label: '🗣️ Teaser'
+      format_type: tab
+      format_settings:
+        label: '🗣️ Teaser'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+    group_content_details:
+      children:
+        - field_tags
+      parent_name: group_page
+      weight: 23
+      format_type: tab
+      format_settings:
+        label: '🔗 Taxonomy'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: '🔗 Taxonomy'
+    group_related_content:
+      children:
+        - field_related_content
+      parent_name: group_page
+      weight: 25
+      format_type: tab
+      format_settings:
+        label: '💻 Related content'
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: '💻 Related content'
+    group_hero:
+      children:
+        - field_hero_image
+      parent_name: group_page
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: '🖼️ Hero'
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_hero_image:
+    weight: 102
+    settings:
+      entity_browser: image
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: large
+      field_widget_replace: false
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_image:
+    weight: 7
+    settings:
+      entity_browser: image
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: small
+      field_widget_replace: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_meta:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
+    region: content
+  field_related_content:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_scheduled_publish:
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    type: scheduled_publish
+    region: content
+  field_slices:
+    type: paragraphs
+    weight: 8
+    settings:
+      title: Slice
+      title_plural: Slices
+      edit_mode: open
+      closed_mode: preview
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: modal
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        duplicate: duplicate
+        collapse_edit_all: collapse_edit_all
+        add_above: add_above
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 26
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  field_teaser_summary:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 4
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: entity_reference_autocomplete
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  url_redirects:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  status: true

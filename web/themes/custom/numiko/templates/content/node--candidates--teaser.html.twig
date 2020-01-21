@@ -1,0 +1,17 @@
+{% extends '@numiko/content/node--teaser.html.twig' %}
+
+{% block teaser_content %}
+  <h3 class="teaser__title">
+    <a href="{{ url }}" class="teaser__link">
+      <span class="animate-underline">{{ label }}</span>
+    </a>
+  </h3>
+
+  <div class="teaser__desc">
+    <span>{{ content.field_text|field }}{{ content.field_additional_text|field ? ','}}</span>
+    {% if content.field_additional_text|field %}
+      <span>{{ content.field_additional_text|field }}</span>
+    {% endif %}
+  </div>
+
+{% endblock teaser_content %} 

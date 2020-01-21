@@ -1,0 +1,7 @@
+name: Slice Jump Links
+type: module
+description: Add jump links from slices
+core: 8.x
+package: Slices
+dependencies:
+  - paragraphs

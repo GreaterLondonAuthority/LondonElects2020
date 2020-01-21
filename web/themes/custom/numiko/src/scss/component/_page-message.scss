@@ -1,0 +1,11 @@
+
+.page-message {
+  background-color: color('grey-dark');
+  color: color('white');
+  padding: $spacing-xs 0;
+  text-align: center;
+
+  p {
+    margin-bottom: 0;
+  }
+}

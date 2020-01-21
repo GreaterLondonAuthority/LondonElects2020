@@ -1,0 +1,24 @@
+diff --git a/src/Normalizer/ContentEntityNormalizer.php b/src/Normalizer/ContentEntityNormalizer.php
+index 57466e8..4e3de2b 100755
+--- a/src/Normalizer/ContentEntityNormalizer.php
++++ b/src/Normalizer/ContentEntityNormalizer.php
+@@ -18,6 +18,11 @@ class ContentEntityNormalizer extends BaseContentEntityNormalizer {
+ 
+   use SyncNormalizerDecoratorTrait;
+ 
++  /**
++   * @var EntityTypeManagerInterface
++   */
++  protected $entityManager;
++
+   /**
+    * @var SyncNormalizerDecoratorManager
+    */
+@@ -32,6 +37,7 @@ class ContentEntityNormalizer extends BaseContentEntityNormalizer {
+    */
+   public function __construct(EntityTypeManagerInterface $entity_manager, SyncNormalizerDecoratorManager $decorator_manager) {
+     parent::__construct($entity_manager);
++    $this->entityManager = $entity_manager;
+     $this->decoratorManager = $decorator_manager;
+   }
+ 

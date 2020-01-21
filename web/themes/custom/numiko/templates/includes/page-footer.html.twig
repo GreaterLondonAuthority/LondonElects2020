@@ -1,0 +1,20 @@
+<footer class="footer" role="contentinfo">
+  <div class="footer__upper">
+    <div class="container">
+      <div class="footer__upper-wrapper">
+        <a class="footer__hyperlink" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+          {# TODO: Add logo in CMS. Styling should be OK but please double-check. #}
+          <img src="{{ site_logo }}" class="footer__logo" alt="{{ 'London Elects'|t }}" />
+        </a>
+        <div class="footer__content">
+          {{ page.footer }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer__lower">
+    <div class="container">
+      <span>{{ 'Copyright'|t }} &copy; {{ 'London Elects'|t }} {{ "now"|date("Y") }}</span>
+    </div>
+  </div>
+</footer>

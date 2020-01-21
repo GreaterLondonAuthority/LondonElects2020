@@ -1,0 +1,5 @@
+name: Custom Caption Filter
+type: module
+description: Insert caption into media element where we want it
+core: 8.x
+package: Numiko

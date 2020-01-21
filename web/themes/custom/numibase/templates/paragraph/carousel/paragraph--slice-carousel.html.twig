@@ -1,0 +1,14 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block content %}
+<div class="swiper-container | js-carousel">
+  <div class="swiper-wrapper">
+    {{ content|without('field_title', 'field_hide_title') }}
+  </div>
+
+  <div class="swiper-navigation">
+    <button aria-label="Previous slide" class="js-carousel-prev">Previous</button>
+    <button aria-label="Next slide" class="js-carousel-next">Next</button>
+  </div>
+</div>
+{% endblock %}

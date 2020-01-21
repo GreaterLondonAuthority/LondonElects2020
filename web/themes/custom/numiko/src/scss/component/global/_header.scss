@@ -1,0 +1,54 @@
+.header {
+  background-color: color('black');
+  color: color('white');
+  position: relative;
+  z-index: 1; // Keep it above the menu overlay (index:0)
+}
+
+.header__container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+// Logo
+.header__logo {
+  width: 6.4rem;
+  height: auto;
+  display: block;
+  flex: 0 0 auto;
+
+  @include media('>=medium') {
+    width: 12.2rem;
+  }
+}
+
+// Slogan
+.header__slogan {
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0 auto;
+  padding: 0 5%;
+  @include typi('slogan');
+
+  @include media('>=medium') {
+    padding: 0 $spacing-xl;
+  }
+}
+
+// Search
+.header__search {
+  display: none;
+
+  .button {
+    border-width: 2px; //stop it looking pixelated in header
+  }
+
+  @include media('>=large') {
+    display: block;
+    flex-shrink: 0;
+  }
+}

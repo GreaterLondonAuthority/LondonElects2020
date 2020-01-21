@@ -1,0 +1,20 @@
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  fill: currentColor;
+  transition: fill $base-transition-speed ease;
+}
+
+.icon--large {
+  height: 1.25em;
+  width: 1.25em;
+}
+
+// Icons that are build with strokes
+.icon--stroke {
+  stroke: currentColor;
+  stroke-width: 2;
+}
+

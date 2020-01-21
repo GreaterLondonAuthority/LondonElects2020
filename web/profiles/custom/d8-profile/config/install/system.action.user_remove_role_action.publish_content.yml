@@ -1,0 +1,13 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.publish_content
+  module:
+    - user
+id: user_remove_role_action.publish_content
+label: 'Remove the Publish content role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: publish_content

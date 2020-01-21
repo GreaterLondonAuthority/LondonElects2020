@@ -1,0 +1,12 @@
+.cta-link {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.cta-link__list {
+  li {
+    @include typi('small');
+    color: color('grey-base-secondary');
+    display: inline-block;
+  }
+}

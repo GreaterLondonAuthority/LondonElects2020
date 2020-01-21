@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 12_6_media_large
+label: '12:6 Media - Large (1300×650)'
+effects:
+  6dd7a754-ee9e-43c8-925d-390076a18092:
+    uuid: 6dd7a754-ee9e-43c8-925d-390076a18092
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1300
+      height: 650
+      crop_type: focal_point
+pipeline: local_binaries

@@ -1,0 +1,9 @@
+<a class='header__logo' href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+  <img src="{{ site_logo }}" alt="{{ 'London Elects'|t }}" />
+</a>
+
+{% if site_slogan is not empty %}
+<h1 class='header__slogan'>
+   {{ site_slogan }}
+</h1>
+{% endif %}

@@ -1,0 +1,7 @@
+polling_station_lookup.config_form:
+  title: 'Polling station lookup'
+  route_name: polling_station_lookup.config_form
+  description: 'Polling station lookup configuration.'
+  parent: system.admin_config_system
+  weight: 99
+

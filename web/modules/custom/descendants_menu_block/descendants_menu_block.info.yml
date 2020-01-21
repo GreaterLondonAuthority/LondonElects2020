@@ -1,0 +1,7 @@
+name: Descendants Menu Block
+type: module
+description: Extends <em>menu_block</em> module to display menu descendants from the current page.
+core: 8.x
+package: Numiko
+dependencies:
+  - menu_block

@@ -1,0 +1,16 @@
+drupal.form_ui:
+  version: VERSION
+  css:
+    theme:
+      css/form_ui.admin.theme.css: {}
+  js:
+    js/form_ui.vertical_tabs.js: {}
+
+drupal.media_browser:
+  version: VERSION
+  css:
+    theme:
+      css/form_ui.media_browser.theme.css: {}
+  js:
+    js/form_ui.media_browser.js: {}
+    

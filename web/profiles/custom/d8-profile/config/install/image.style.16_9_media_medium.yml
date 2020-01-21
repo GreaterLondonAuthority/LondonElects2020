@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 16_9_media_medium
+label: '16:9 Media - Medium (1000×563)'
+effects:
+  da18f939-26eb-4b73-8e77-fb2293b7fcd3:
+    uuid: da18f939-26eb-4b73-8e77-fb2293b7fcd3
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1000
+      height: 563
+      crop_type: focal_point
+pipeline: local_binaries

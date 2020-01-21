@@ -1,0 +1,5 @@
+name: Sensible Email Validation
+type: module
+description: Disallow domains without TLDs in email addresses
+core: 8.x
+package: Numiko

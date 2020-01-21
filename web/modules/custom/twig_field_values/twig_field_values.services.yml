@@ -1,0 +1,6 @@
+services:
+  twig_field_values.twig_extension:
+    class: Drupal\twig_field_values\Twig\TwigExtension
+    arguments: ['@twig.extension']
+    tags:
+      - { name: twig.extension }

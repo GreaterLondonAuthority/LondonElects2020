@@ -1,0 +1,12 @@
+{% extends '@numiko/content/node--teaser.html.twig' %}
+
+
+{% block teaser_meta %}
+
+  <span class="teaser__taxonomy">
+    <span class="visually-hidden">{{ "Date published:"|t }} </span>
+    {{ content.field_publication_date }}
+  </span>
+
+{% endblock teaser_meta %} 
+

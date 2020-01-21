@@ -1,0 +1,163 @@
+/* stylelint-disable */
+@import 'accoutrement-color/sass/color';
+
+@import 'config/color';
+@import "config/variables";
+
+@media print {
+
+  * {
+    opacity: 1;
+    width: 100%;
+    height: auto!important;
+    float: none!important;
+  }
+
+  body {
+    width: 100%;
+    margin: 0;
+    float: none;
+    background: color('white');
+    color: color('black'); 
+    font: 1em Georgia, "Times New Roman", Times, serif;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: Helvetica, Arial, sans-serif!important;
+    color: color('black')!important;
+  }
+
+  h1 { font-size: 200%!important; }
+  h2 { font-size: 175%!important; }
+  h3 { font-size: 135%!important; }
+  h4 { font-size: 100%!important; font-variant: small-caps; }
+  h5 { font-size: 100%!important; }
+  h6 { font-size: 90%!important; font-style: italic; }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }
+
+  ul, img {
+    page-break-inside: avoid;
+  }
+
+  a:link, a:visited {
+    text-decoration: underline; 
+  }
+
+  .wrapper-content a:link:after, 
+  .wrapper-content a:visited:after {
+    content: " (" attr(href) ") ";
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  .screen-only {
+    display: none;
+  }
+
+  .print-only {
+    display: block!important;
+  }
+
+  svg,
+  img,
+  picture,
+  figure.media-video {
+    display: none;
+  }
+
+  .skip-link,
+  .header__search,
+  .hamburger,
+  .menu-primary-revealer,
+  .footer,
+  .search-bar,
+  .breadcrumbs,
+  .share,
+  .header__slogan,
+  .result-nav__heading,
+  .result-nav,
+  .notifications,
+  .jump-links {
+    display: none;
+  }
+
+  .slice-twitter,
+  .slice-teaser,
+  .slice-views,
+  .slice-related-downloads {
+    display: none;
+  }
+
+  // Hide these elements
+  .visuallyhidden {
+    display: none;
+  }
+
+  .accordion-item__button,
+  .accordion-item__content {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  .accordion-item__button.is-active {
+    border: 0;
+    text-align: left;
+    font-size: 100% !important;
+    padding: 0;
+  }
+
+  .header__logo {
+    display: block;
+    width: 15%;
+    margin-bottom: 1rem;
+  }
+
+  .candidate-item {
+    width: 50%;
+    float: left !important;
+  }
+
+
+  .wysiwyg-table {
+    margin: 1rem 0;
+
+    th {
+      background-color: #dddddd;
+    }
+
+    td, th {
+      margin: 0;
+      padding: 1rem;
+      text-align: left;
+      width: auto;
+      font-weight: normal;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100% !important;
+    }
+
+    caption {
+      text-align: left;
+      margin-bottom: $spacing-s;
+    }
+  }
+
+  .chart__row {
+    color: color('black') !important;
+  }
+}
+/* stylelint-enable */

@@ -1,0 +1,39 @@
+.breadcrumbs {
+  display: none;
+
+  @include media('>=large') {
+    display: block;
+    margin-top: $spacing-s;
+  }
+}
+
+.breadcrumbs__list {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.breadcrumbs__item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumbs__icon {
+  margin: 0 1rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  stroke: color('grey-dark');
+}
+
+.breadcrumbs__text {
+  padding: 1rem;
+  @include typi('breadcrumb-text');
+  color: color('grey-dark');
+}
+
+.hyperlink {
+  @include animate-underline($inverted: true, $color: color('grey-dark'));
+  text-decoration: none;
+}

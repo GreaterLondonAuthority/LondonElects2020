@@ -1,0 +1,58 @@
+{% extends '@numiko/content/node.html.twig' %}
+
+{% block content_main %}
+  {{ content|without('field_link', 'field_twitter', 'field_facebook', 'field_youtube', 'field_forename', 'field_surname') }}
+{% endblock content_main %}
+
+{% block content_footer %}
+  <div class="slice">
+    <div class="container__pinch">
+      <div class="l-grid l-grid--2-col l-grid--w-h-gutter l-grid--w-v-gutter">
+        {% if has_value(content.field_link) %}
+          <div class="l-grid__item">
+            <div class="share">
+              <a href="{{ content.field_link[0]['#url'] }}" target="_blank" rel="nofollow">
+                {{ content.field_link[0]['#title'] }}
+              </a>
+            </div>
+          </div>
+        {% endif %}
+        {% if has_value(content.field_twitter) or has_value(content.field_facebook) or has_value(content.field_youtube) %}
+          <div class="l-grid__item">
+            <div class="share">
+              <span class="share__title">Candidate's social media </span>
+              <ul class="social-list">
+                {% if has_value(content.field_twitter) %}
+                  <li class="social-list__item">
+                    <a href="{{ content.field_twitter[0]['#url'] }}" class="social-list__hyperlink social-list__hyperlink--twitter | js-skip-external-link" target="_blank" rel="nofollow noopener" title="{{ content.field_twitter[0]['#title'] }}">
+                      <span class="visually-hidden">{{ content.field_twitter[0]['#title'] }}</span>
+                      <svg class="icon icon--large icon--twitter" focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-twitter'></use></svg>
+                    </a>
+                  </li>
+                {% endif %}
+                {% if has_value(content.field_facebook) %}
+                  <li class="social-list__item">
+                    <a href="{{ content.field_facebook[0]['#url'] }}" class="social-list__hyperlink social-list__hyperlink--facebook | js-skip-external-link" target="_blank" rel="nofollow noopener" title="{{ content.field_facebook[0]['#title'] }}">
+                      <span class="visually-hidden">{{ content.field_facebook[0]['#title'] }}</span>
+                      <svg class="icon icon--large icon--facebook" focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-facebook'></use></svg>
+                    </a>
+                  </li>
+                {% endif %}
+                {% if has_value(content.field_youtube) %}
+                  <li class="social-list__item">
+                    <a href="{{ content.field_youtube[0]['#url'] }}" class="social-list__hyperlink social-list__hyperlink--youtube | js-skip-external-link" target="_blank" rel="nofollow noopener" title="{{ content.field_youtube[0]['#title'] }}">
+                      <span class="visually-hidden">{{ content.field_youtube[0]['#title'] }}</span>
+                      <svg class="icon icon--large icon--youtube" focusable="false" aria-role="presentation"><use xlink:href='#sprite-icon-youtube'></use></svg>
+                    </a>
+                  </li>
+                {% endif %}
+              </ul>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% include '@numiko/content/includes/social.html.twig' %}
+{% endblock content_footer %}
+

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_content
+label: 'Slice: Content'
+icon_uuid: null
+description: 'Add a wysiwyg content slice'
+behavior_plugins: {  }

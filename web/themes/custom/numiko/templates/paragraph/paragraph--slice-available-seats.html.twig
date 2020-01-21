@@ -1,0 +1,7 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block content %}
+  <ul class="chart">
+    {{ content|without('field_title', 'field_hide_title', 'field_columns', 'field_image') }}
+  </ul>
+{% endblock content %}

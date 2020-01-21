@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains sensible_email_validation.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function sensible_email_validation_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the sensible_email_validation module.
+    case 'help.page.sensible_email_validation':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Disallow domains without TLDs in email addresses') . '</p>';
+      return $output;
+
+    default:
+  }
+}

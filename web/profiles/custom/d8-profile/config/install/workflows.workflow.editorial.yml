@@ -1,0 +1,73 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.page
+  module:
+    - content_moderation
+id: editorial
+label: Editorial
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      published: false
+      default_revision: false
+      label: Archived
+      weight: 1
+    draft:
+      label: Draft
+      published: false
+      default_revision: false
+      weight: -2
+    needs_review:
+      published: false
+      default_revision: false
+      label: 'Needs Review'
+      weight: -1
+    published:
+      label: Published
+      published: true
+      default_revision: true
+      weight: 0
+  transitions:
+    archive:
+      label: Archive
+      from:
+        - draft
+        - needs_review
+        - published
+      to: archived
+      weight: 2
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: -2
+      from:
+        - draft
+        - published
+    publish:
+      label: Publish
+      to: published
+      weight: 0
+      from:
+        - needs_review
+    ready_for_review:
+      label: 'Ready For Review'
+      from:
+        - draft
+        - needs_review
+      to: needs_review
+      weight: -1
+    skip_review_publish:
+      label: 'Skip Review Publish'
+      from:
+        - draft
+        - published
+      to: published
+      weight: 1
+  entity_types:
+    node:
+      - article
+      - page

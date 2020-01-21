@@ -1,0 +1,17 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_1_media_small
+label: '1:1 Media - Small (750×750)'
+effects:
+  8ed71869-90db-46d8-b4f0-7ecc8d59057a:
+    uuid: 8ed71869-90db-46d8-b4f0-7ecc8d59057a
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 750
+      height: 750
+      crop_type: focal_point
+pipeline: local_binaries

@@ -1,0 +1,5 @@
+name: Menu cache fix
+type: module
+description: Clears cache after a node is inserted or updated to fix a range of caching issues
+core: 8.x
+package: Numiko

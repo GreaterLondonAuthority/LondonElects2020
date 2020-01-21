@@ -1,0 +1,9 @@
+<ul class="jump-links-list">
+{% for item in list.items %}
+  <li>
+    <a href="#{{ item.anchor }}" class="hyperlink | js-jump-link">
+      <span class="animate-underline">{{ item.label }}<span>
+    </a>
+  </li>
+{% endfor %}
+</ul>

@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.12_6_media_huge
+    - image.style.12_6_media_large
+    - image.style.12_6_media_medium
+    - image.style.12_6_media_small
+id: hero
+label: Hero
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: sizes
+    image_mapping:
+      sizes: 100vw
+      sizes_image_styles:
+        - 12_6_media_huge
+        - 12_6_media_large
+        - 12_6_media_medium
+        - 12_6_media_small
+breakpoint_group: responsive_image
+fallback_image_style: 12_6_media_small

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_carousel
+label: 'Slice: Carousel'
+icon_uuid: null
+description: 'Add a carousel slice'
+behavior_plugins: {  }

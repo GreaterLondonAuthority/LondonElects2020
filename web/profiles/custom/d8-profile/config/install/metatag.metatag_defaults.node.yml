@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  image_src: '[node:field_image]'
+  referrer: no-referrer
+  description: '[node:summary]'

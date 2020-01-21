@@ -1,0 +1,58 @@
+uuid:
+  -
+    value: b4ef0bd7-7568-4300-8f44-250a38efc500
+langcode:
+  -
+    value: en
+type:
+  -
+    target_id: page_message
+    target_type: user_message_type
+    target_uuid: 91eb2dd5-c1cf-4941-ae0d-bde8a026ea11
+    url: /admin/structure/user_message_type/page_message
+revision_created:
+  -
+    value: '2019-09-10T14:33:35+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_user:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+revision_log_message: {  }
+status:
+  -
+    value: true
+user_id:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+name:
+  -
+    value: 'Voting date'
+created:
+  -
+    value: '2019-09-10T14:33:35+00:00'
+    format: 'Y-m-d\TH:i:sP'
+changed:
+  -
+    value: '2019-09-10T14:33:35+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_translation_affected:
+  -
+    value: true
+default_langcode:
+  -
+    value: true
+metatag:
+  value:
+    title: 'Single Export | London Elects'
+    canonical_url: 'https://elects.docker:8081/admin/config/development/content/export/single'
+field_message:
+  -
+    value: 'The 2020 Lord Mayoral elections will take place on 06th May 2020'
+_content_sync:
+  entity_type: user_message
+  entity_dependencies:
+    user:
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676

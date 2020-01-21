@@ -1,0 +1,11 @@
+
+<a {{ attributes.addClass('button') }} href="{{ content.field_media_file | field }}" download>
+  <svg class='icon icon--stroke' focusable="false" aria-role="presentation">
+    <use xlink:href='#sprite-icon-download'></use>
+  </svg>
+  <span>Download 
+    <span class="visually-hidden">{{ content.name }}</span>
+    ({{ file_extension | upper }}, {{ file_size }})
+  </span>
+</a>
+

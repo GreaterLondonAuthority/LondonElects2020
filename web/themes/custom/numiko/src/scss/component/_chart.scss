@@ -1,0 +1,91 @@
+.chart {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chart__item {
+  &:not(:first-child) {
+    margin-top: $spacing-xs;
+
+    @include media('>=large') {
+      margin-top: $spacing-s;
+    }
+  }
+
+  @include media('<large') {
+    &:not(:last-child) {
+      padding-bottom: $spacing-xs;
+      border-bottom: 1px solid color('keyline');
+    }
+  }
+}
+
+.chart__row {
+  @include media('>=large') {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.chart__label {
+  color: color('grey-base-secondary');
+
+  @include media('<large') {
+    margin-bottom: 1.4rem;
+  }
+
+  @include media('>=large') {
+    flex-basis: calc(#{percentage(300px / 1150px)} - #{$spacing-xs});
+  }
+
+  p {
+    margin: 0;
+    line-height: 1;
+
+    &:first-of-type {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+.chart__data {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include media('>=large') {
+    flex-basis: percentage(850px / 1150px);
+  }
+}
+
+.chart__graphic {
+  height: 4.0rem;
+  background-color: color('white');
+  overflow: hidden;
+  flex-basis: 100%;
+
+  @include media('>=large') {
+    flex-basis: percentage(650px / 850px);
+  }
+}
+
+.chart__graphic__foreground {
+  height: 100%;
+  background-color: currentColor;
+}
+
+.chart__value {
+  text-align: right;
+  color: color('grey-base-secondary');
+
+  @include media('>=large') {
+    flex-basis: percentage(200px / 850px);
+  }
+
+  p {
+    margin: 0;
+  }
+}

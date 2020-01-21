@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: publish_content
+label: 'Publish content'
+weight: -6
+is_admin: null
+permissions:
+  - 'use editorial transition publish'

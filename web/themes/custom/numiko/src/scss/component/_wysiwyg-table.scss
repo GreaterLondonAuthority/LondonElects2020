@@ -1,0 +1,54 @@
+
+.wysiwyg-table {
+  margin: $spacing-m 0;
+
+  th {
+    background-color: color('black');
+    color: color('white');
+  }
+
+  td {
+    background-color: color('white');
+    color: color('black');
+  }
+
+  td, th {
+    border: 1px solid color('keyline');
+    margin: 0;
+    padding: 2rem;
+    text-align: left;
+    min-width: 250px;
+    max-width: 500px;
+    font-weight: normal;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100% !important;
+  }
+
+  caption {
+    text-align: left;
+    margin-bottom: $spacing-s;
+  }
+
+  // simplebar overrides
+
+  .simplebar-track.simplebar-horizontal {
+    background-color: color('keyline');
+    overflow: hidden;
+    position: relative;
+  }
+
+  .simplebar-track.simplebar-horizontal .simplebar-scrollbar {
+    background-color: transparent;
+    top: 50%;
+    margin-top: -4px;
+  }
+
+  .simplebar-scrollbar.simplebar-visible {
+    &:before {
+      opacity: 0.9;
+    }
+  }
+}

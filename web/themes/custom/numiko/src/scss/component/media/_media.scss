@@ -1,0 +1,75 @@
+
+
+.embedded-entity,
+.media-item-in-slice {
+  margin-bottom: $spacing-s;
+
+  > div {
+    display: inline-block;
+  }
+
+  img {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  figcaption {
+    @include typi('small');
+    padding: 1rem;
+    background-color: color('grey-dark');
+    color: color('white');
+  }
+
+  &.align-left {
+    @include media('>=large') {
+      max-width: 50%;
+      float: left;
+      margin-right: $spacing-s;
+    }
+  }
+
+  &.align-right {  
+    @include media('>=large') {
+      max-width: 50%;
+      float: right;
+      margin-left: $spacing-s;
+    }
+  }
+
+  &.align-center {  
+    @include media('>=large') {
+      text-align: center;
+    }
+  }
+}
+
+.media-item-in-slice {
+  img {
+    width: 100%;
+  }
+}
+
+.media-image {
+  display: inline-block;
+  max-width: 100%;
+
+  &.media-teaser_landscape {
+    width: 100%;
+    
+    img {
+      width: 100%;
+    }
+  }
+}
+
+// lazyload styles
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+  transition: opacity 0.2s;
+}

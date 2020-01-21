@@ -1,0 +1,14 @@
+{
+  "name": "numiko/slice_jump_links",
+  "type": "drupal-module",
+  "description": "Add jump links from slices",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/slice_jump_links",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/slice_jump_links",
+    "source": "http://cgit.drupalcode.org/slice_jump_links"
+  },
+  "require": { }
+}

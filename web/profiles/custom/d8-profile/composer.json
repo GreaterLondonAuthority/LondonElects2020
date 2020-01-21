@@ -1,0 +1,101 @@
+{
+    "name": "numiko/d8-profile",
+    "description": "The numiko d8 profile",
+    "type": "drupal-profile",
+    "license": "GPL-2.0+",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0",
+        "drupal/core": "*",
+        "drupal/ctools": "*",
+        "drupal/field_group": "*",
+        "drupal/scheduled_publish": "*",
+        "drupal/workbench": "*",
+        "drupal/config_update": "*",
+        "drupal/config_filter": "*",
+        "drupal/config_ignore": "*",
+        "drupal/config_split": "*",
+        "drupal/inline_entity_form": "*",
+        "drupal/token": "*",
+        "drupal/pathauto": "*",
+        "drupal/views_infinite_scroll": "*",
+        "drupal/seckit": "*",
+        "drupal/password_policy": "*",
+        "drupal/role_delegation": "*",
+        "drupal/honeypot": "*",
+        "drupal/filter_perms": "*",
+        "drupal/metatag": "*",
+        "drupal/schema_metatag": "*",
+        "drupal/simple_sitemap": "*",
+        "drupal/redirect": "*",
+        "drupal/path_redirect_import": "*",
+        "drupal/easy_breadcrumb": "*",
+        "drupal/menu_block": "*",
+        "drupal/paragraphs": "*",
+        "drupal/smart_trim": "*",
+        "drupal/linkit": "^5",
+        "drupal/editor_advanced_link": "*",
+        "drupal/cshs": "*",
+        "drupal/node_boolean": "*",
+        "drupal/embed": "*",
+        "drupal/entity_embed": "*",
+        "drupal/entity_browser": "*",
+        "drupal/video_embed_field": "*",
+        "drupal/focal_point": "*",
+        "drupal/accessible_media_embed": "*",
+        "drupal/fallback_media": "*",
+        "drupal/maxlength": "*",
+        "drupal/webform": "*",
+        "drupal/clientside_validation": "*",
+        "drupal/mailsystem": "*",
+        "drupal/mimemail": "*",
+        "drupal/better_exposed_filters": "*",
+        "drupal/search_api": "*",
+        "drupal/search_api_solr": "*",
+        "drupal/search_api_autocomplete": "*",
+        "drupal/search_api_attachments": "*",
+        "drupal/facets": "*",
+        "drupal/facets_pretty_paths": "*",
+        "drupal/advagg": "*",
+        "drupal/minifyhtml": "*",
+        "drupal/redis": "*",
+        "drupal/imageapi_optimize": "*",
+        "drupal/imageapi_optimize_binaries": "*",
+        "drupal/entity_clone": "*",
+        "drupal/devel": "*",
+        "drupal/search_kint": "*",
+        "drupal/coffee": "*",
+        "drupal/stage_file_proxy": "*",
+        "drupal/tab_toolbar": "*",
+        "drupal/environment_indicator": "*",
+        "drupal/username_enumeration_prevention": "*"
+    },
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "[1551534] Allow a button in an exposed forms to trigger ajax.": "https://www.drupal.org/files/issues/2018-08-20/1551534-8.6.patch",
+                "[2730631] Node revision routes don't convert {node} param": "https://www.drupal.org/files/issues/2730631-13.patch",
+                "[2895477] Native browser form validation does not fire when submit buttons use #ajax": "https://www.drupal.org/files/issues/2019-02-11/2895477-30.patch"
+            },
+            "drupal/coffee": {
+                "[1734898] Allow user to specify keyboard shortcut": "https://www.drupal.org/files/issues/1734898-7.coffee-hotkeys.patch"
+            },
+            "drupal/entity_clone": {
+                "[2706639] Support for cloning nodes that have another entities attached": "https://www.drupal.org/files/issues/entity_clone-allow_for_recursive_entity_cloning-2706639-41.patch"
+            },
+            "drupal/tab_toolbar": {
+                "[2947903] Make tab toolbar available in admin theme configurable": "https://www.drupal.org/files/issues/2947903-4-make-admin-toolbar-tabs-configurable.patch"
+            },
+            "drupal/clientside_validation": {
+                "[2855356][Numiko] Configurable data attributes": "https://www.drupal.org/files/issues/2019-05-01/2855356-add-data-attribute-overrides_0.patch"
+            }
+        }
+    }
+}

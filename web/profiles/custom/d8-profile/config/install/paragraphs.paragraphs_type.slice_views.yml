@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_views
+label: 'Slice: Views'
+icon_uuid: null
+description: 'Add a views slice to display a listing of content items'
+behavior_plugins: {  }

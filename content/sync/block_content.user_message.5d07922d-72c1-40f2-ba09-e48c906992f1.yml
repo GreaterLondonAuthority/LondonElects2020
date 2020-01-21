@@ -1,0 +1,54 @@
+uuid:
+  -
+    value: 5d07922d-72c1-40f2-ba09-e48c906992f1
+langcode:
+  -
+    value: en
+type:
+  -
+    target_id: user_message
+    target_type: block_content_type
+    target_uuid: 2313b2cf-0469-490f-86b3-0f777e9453dc
+revision_created:
+  -
+    value: '2019-09-06T11:29:10+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_user:
+  -
+    target_type: user
+    target_uuid: 8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+revision_log: {  }
+status:
+  -
+    value: true
+info:
+  -
+    value: 'Search header'
+changed:
+  -
+    value: '2019-09-06T11:29:10+00:00'
+    format: 'Y-m-d\TH:i:sP'
+reusable:
+  -
+    value: true
+default_langcode:
+  -
+    value: true
+revision_translation_affected:
+  -
+    value: true
+metatag:
+  value:
+    title: 'Single Export | London Elects'
+    canonical_url: 'https://elects.docker:8081/admin/config/development/content/export/single'
+field_user_message:
+  -
+    target_type: user_message
+    target_uuid: 1a1353dd-fa94-4400-a355-bf9027e598cf
+_content_sync:
+  entity_type: block_content
+  entity_dependencies:
+    user:
+      - user.user.8ce3038e-1c3c-4b42-8cd6-e8165d6b6676
+    user_message:
+      - user_message.search_header.1a1353dd-fa94-4400-a355-bf9027e598cf

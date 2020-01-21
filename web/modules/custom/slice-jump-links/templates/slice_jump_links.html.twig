@@ -1,0 +1,12 @@
+<div class="jump-links">
+  <ul>
+  {% for item in list.items %}
+    <li><a href="#{{ item.anchor }}">{{ item.label }}</a></li>
+  {% endfor %}
+  </ul>
+  {% if list.buttons %}
+    {% for button in list.buttons %}
+      <a href="{{ button.link }}">{{ button.label }}</a>
+    {% endfor %}
+  {% endif %}
+</div>

@@ -1,0 +1,4 @@
+name: Cache Optimisation
+type: module
+description: Alterations to how caching works on this site
+core: 8.x

@@ -1,0 +1,13 @@
+global-styling:
+  css:
+    base:
+      dist/css/style.css: {media: screen}
+      dist/css/print.css: {media: print}
+
+global-scripts:
+  js:
+    dist/js/bundle.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once
+

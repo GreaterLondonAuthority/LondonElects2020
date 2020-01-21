@@ -1,0 +1,61 @@
+uuid:
+  -
+    value: ac521f7c-caf2-4240-8c38-0c5c31f18857
+langcode:
+  -
+    value: en
+bundle:
+  -
+    value: menu_link_content
+revision_created:
+  -
+    value: '2019-09-11T16:33:52+00:00'
+    format: 'Y-m-d\TH:i:sP'
+revision_user: {  }
+revision_log_message: {  }
+enabled:
+  -
+    value: true
+title:
+  -
+    value: '2008'
+description:
+  -
+    value: '2008 election results'
+menu_name:
+  -
+    value: election-results
+link:
+  -
+    uri: 'internal:/'
+    title: ''
+    options: {  }
+external:
+  -
+    value: false
+rediscover:
+  -
+    value: true
+weight:
+  -
+    value: 3
+expanded:
+  -
+    value: false
+parent: {  }
+changed:
+  -
+    value: '2019-09-11T16:34:05+00:00'
+    format: 'Y-m-d\TH:i:sP'
+default_langcode:
+  -
+    value: true
+revision_translation_affected:
+  -
+    value: true
+metatag:
+  value:
+    title: 'Single Export | London Elects'
+    canonical_url: 'https://elects.docker:8081/admin/config/development/content/export/single'
+_content_sync:
+  entity_type: menu_link_content

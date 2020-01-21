@@ -1,0 +1,32 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block slice_title %}
+{% endblock slice_title %}
+
+{% block content %}
+  <div class="l-grid l-grid--2-col l-grid--w-h-gutter">
+    <div class="l-grid__item">
+      <h2>{{ content.field_title }}</h2>
+    </div>
+    <div class="l-grid__item">
+      <p>
+        <span class="slice-banner__content">
+          {{ content.field_content }}
+        </span>
+
+        {% if has_value(content.field_document) %}
+          {{ content.field_document }}
+        {% elseif has_value(content.field_link) %}
+          <a href="{{ content.field_link[0]['#url'] }}" class="button">
+            <span>
+              {{ content.field_link[0]['#title'] }}
+            </span>
+            <svg class='icon icon--stroke icon--arrow' focusable="false" aria-role="presentation">
+              <use xlink:href='#sprite-icon-arrow'></use>
+            </svg>
+          </a>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+{% endblock content %}

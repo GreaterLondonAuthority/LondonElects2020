@@ -1,0 +1,17 @@
+
+# User message menu items definition
+entity.user_message.collection:
+  title: 'User message list'
+  route_name: entity.user_message.collection
+  description: 'List User message entities'
+  parent: system.admin_structure
+  weight: 100
+
+
+# User message type menu items definition
+entity.user_message_type.collection:
+  title: 'User message type'
+  route_name: entity.user_message_type.collection
+  description: 'List User message type (bundles)'
+  parent: system.admin_structure
+  weight: 99

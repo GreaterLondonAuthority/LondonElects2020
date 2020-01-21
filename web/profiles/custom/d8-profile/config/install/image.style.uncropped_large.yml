@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: uncropped_large
+label: 'Uncropped - Large (1300w)'
+effects:
+  5edebe19-ac5e-479d-9aff-e8771aa5519c:
+    uuid: 5edebe19-ac5e-479d-9aff-e8771aa5519c
+    id: image_scale
+    weight: 1
+    data:
+      width: 1300
+      height: null
+      upscale: false
+pipeline: local_binaries

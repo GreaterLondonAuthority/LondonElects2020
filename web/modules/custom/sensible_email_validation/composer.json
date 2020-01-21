@@ -1,0 +1,16 @@
+{
+  "name": "numiko/sensible_email_validation",
+  "type": "drupal-module",
+  "description": "Disallow domains without TLDs in email addresses",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/sensible_email_validation",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/sensible_email_validation",
+    "source": "http://cgit.drupalcode.org/sensible_email_validation"
+  },
+  "require": {
+      "egulias/email-validator": "*"
+  }
+}

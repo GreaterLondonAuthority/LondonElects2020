@@ -1,0 +1,107 @@
+.footer {
+  color: color('white');
+}
+
+.footer__upper {
+  padding: $spacing-s 0;
+  background-color: color('grey-dark');
+  
+  @include media('>=large') {
+    padding: $spacing-l 0;
+  }
+}
+
+.footer__upper-wrapper {
+  @include media('>=large') {
+    margin-left: -$spacing-l;
+    display: flex;
+  }
+}
+
+.footer__lower {
+  padding: $spacing-xs 0;
+  @include typi('small');
+  background-color: color('black');
+  color: color('grey-light');
+}
+
+.footer__hyperlink {
+  display: block;
+  margin-bottom: $spacing-m;
+
+  @include media('>=large') {
+    padding-left: $spacing-l;
+    margin-bottom: 0;
+    flex-basis: percentage(3 / 12);
+  }
+}
+
+.footer__logo {
+  display: block;
+  width: 13.7rem;
+
+  @include media('>=medium') {
+    width: 16.6rem;
+  }
+}
+
+.footer__title,
+.footer__content h2 {
+  margin-bottom: $spacing-s;
+  @include typi('h3');
+}
+
+.footer__content {
+  @include media('>=large') {
+    margin-bottom: 0;
+    padding-left: $spacing-l;
+    display: flex;
+    flex-basis: percentage(9 / 12);
+  }
+}
+
+
+.footer__menu,
+.footer__follow {
+  margin-bottom: $spacing-m;
+
+  @include media('>=large') {
+    margin-bottom: 0;
+    width: percentage(1 / 2);
+  }
+}
+
+.footer__menu {
+  margin-right: 0;
+
+  @include media('>=large') {
+    margin-right: $spacing-m;
+  }
+
+  .menu {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .menu-item {
+    width: percentage(1 / 2); // occupies 5 grid items when contained in footer__content
+
+    &:nth-of-type(odd) {
+      padding: 0 2rem 0 0; // breathing room
+    }
+
+    &:not(:nth-last-of-type(-n+2)) { // not last two
+      margin: 0 0 1rem;
+    }
+  }
+
+  .menu__link {
+    @include typi('footer-menu');
+    color: color('grey-light');
+    text-decoration: none;
+    @include animate-underline;
+  }
+}

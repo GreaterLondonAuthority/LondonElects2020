@@ -1,0 +1,7 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block content %}
+  <div class="l-grid l-grid--2-col l-grid--w-h-gutter l-grid--w-v-gutter">
+    {{ content|without('field_title', 'field_hide_title') }}
+  </div>
+{% endblock content %}

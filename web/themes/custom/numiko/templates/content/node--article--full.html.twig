@@ -1,0 +1,16 @@
+{% extends '@numiko/content/node.html.twig' %}
+
+{% block content_main %}
+
+  <div class="slice">
+    <div class="container__pinch">
+      {{ content.field_publication_date }}
+    </div>
+  </div>
+
+  {{ content|without('field_publication_date') }}
+{% endblock content_main %}
+
+{% block content_footer %}
+  {% include '@numiko/content/includes/social.html.twig' %}
+{% endblock content_footer %}

@@ -1,0 +1,13 @@
+services:
+  logger.channel.polling_station_lookup:
+    parent: logger.channel_base
+    arguments: ['polling_station_lookup']
+  polling_station_lookup:
+    class: Drupal\polling_station_lookup\PollingStationLookupService
+    arguments: ['@config.factory']
+  polling_station.response_parser:
+    class: Drupal\polling_station_lookup\Parser\ResponseParser
+    arguments: []
+  polling_station.address_parser:
+    class: Drupal\polling_station_lookup\Parser\AddressParser
+    arguments: ['@config.factory']

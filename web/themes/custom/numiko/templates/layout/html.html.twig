@@ -1,0 +1,113 @@
+{#
+/**
+ * @file
+ * Theme override for the basic structure of a single Drupal page.
+ *
+ * Variables:
+ * - logged_in: A flag indicating if user is logged in.
+ * - root_path: The root path of the current page (e.g., node, admin, user).
+ * - node_type: The content type for the current node, if the page is a node.
+ * - head_title: List of text elements that make up the head_title variable.
+ *   May contain one or more of the following:
+ *   - title: The title of the page.
+ *   - name: The name of the site.
+ *   - slogan: The slogan of the site.
+ * - page_top: Initial rendered markup. This should be printed before 'page'.
+ * - page: The rendered page markup.
+ * - page_bottom: Closing rendered markup. This variable should be printed after
+ *   'page'.
+ * - db_offline: A flag indicating if the database is offline.
+ * - placeholder_token: The token for generating head, css, js and js-bottom
+ *   placeholders.
+ *
+ * @see template_preprocess_html()
+ */
+#}
+{% set gtm_code = 'GTM-KXBTQP' %}
+{%
+  set body_classes = [
+    logged_in ? 'user-logged-in',
+    not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
+    node_type ? 'page-node-type-' ~ node_type|clean_class,
+    db_offline ? 'db-offline',
+    'no-js'
+  ]
+%}
+<!DOCTYPE html>
+<html{{ html_attributes }}>
+  <head>
+    <head-placeholder token="{{ placeholder_token }}">
+    <title>{{ head_title|safe_join(' | ') }}</title>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ gtm_code }}');</script>
+    <!-- End Google Tag Manager -->
+
+    <css-placeholder token="{{ placeholder_token }}">
+    <js-placeholder token="{{ placeholder_token }}">
+
+    <link rel="shortcut icon" href="/{{ directory }}/favicons/favicon.ico">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/{{ directory }}/favicons/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/{{ directory }}/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/{{ directory }}/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/{{ directory }}/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/{{ directory }}/favicons/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/{{ directory }}/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/{{ directory }}/favicons/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/{{ directory }}/favicons/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/{{ directory }}/favicons/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/{{ directory }}/favicons/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/{{ directory }}/favicons/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/{{ directory }}/favicons/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/{{ directory }}/favicons/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+  </head>
+
+  <body{{ attributes.addClass(body_classes) }} style="padding: 0px; margin: 0px;">
+
+  <!-- Google Tag Manager (noscript) -->
+
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id={{ gtm_code }}"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
+
+  <!-- End Google Tag Manager (noscript) -->
+
+    {# Keyboard navigation/accessibility link to main content section in page.html.twig. #}
+
+    <a href="#main-content" class="visually-hidden visually-hidden-focusable focusable skip-link">
+      {{ 'Skip to main content'|t }}
+    </a>
+
+    <div class="svg-symbols" style='display:none;'>
+      {% include directory ~ '/dist/img/sprite/svg-symbols.svg' ignore missing %}
+    </div>
+
+    <!-- No JS Warning -->
+    <noscript>
+      <div class="c-info-bar -warning" role="alert" style="display: flex;">
+        <div class="c-info-bar__content">
+          <p><strong>Please enable JavaScript in your web browser to get the best experience.</strong></p>
+        </div>
+      </div>
+    </noscript>
+      <!-- End of No JS Warning -->
+
+      {{ page_top }}
+      {{ page }}
+      {{ page_bottom }}
+
+    <js-bottom-placeholder token="{{ placeholder_token }}">
+  </body>
+</html>

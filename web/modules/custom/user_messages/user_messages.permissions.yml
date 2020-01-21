@@ -1,0 +1,30 @@
+add user message entities:
+  title: 'Create new User message entities'
+
+administer user message entities:
+  title: 'Administer User message entities'
+  description: 'Allow to access the administration form to configure User message entities.'
+  restrict access: true
+
+delete user message entities:
+  title: 'Delete User message entities'
+
+edit user message entities:
+  title: 'Edit User message entities'
+
+view published user message entities:
+  title: 'View published User message entities'
+
+view unpublished user message entities:
+  title: 'View unpublished User message entities'
+
+view all user message revisions:
+  title: 'View all User message revisions'
+
+revert all user message revisions:
+  title: 'Revert all User message revisions'
+  description: 'Role requires permission <em>view User message revisions</em> and <em>edit rights</em> for user message entities in question or <em>administer user message entities</em>.'
+
+delete all user message revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view User message revisions</em> and <em>delete rights</em> for user message entities in question or <em>administer user message entities</em>.'

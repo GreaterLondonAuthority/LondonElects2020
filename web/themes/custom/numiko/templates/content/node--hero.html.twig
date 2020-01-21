@@ -1,0 +1,19 @@
+<div class='hero'>
+  {% if has_value(content.field_hero_image) %}
+    <div class='hero__media'>{{ content.field_hero_image }}</div>
+  {% endif %}
+
+  <div class='hero__content'>
+    <div class='container'>
+      <h1 class='hero__heading'>
+        {% if has_value(content.field_hero_title) %}
+          {{ content.field_hero_title }}
+        {% else %}
+          {{ label }}
+        {% endif %}
+      </h1>
+      {{ blocks.numiko_breadcrumbs }}
+    </div>
+  </div>
+</div>
+

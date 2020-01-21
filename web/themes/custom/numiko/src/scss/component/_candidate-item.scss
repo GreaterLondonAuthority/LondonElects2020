@@ -1,0 +1,31 @@
+.candidate-item-container {
+  width: 100%;
+}
+
+.candidate-item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.candidate-item__party {
+  width: 5rem;
+  height: 5rem;
+  flex-shrink: 0;
+}
+
+.candidate-item__content {
+  margin-left: 2.5rem;
+
+  h3 {
+    margin-bottom: 5px;
+
+    span {
+      display: block;
+    }
+  }
+
+  p {
+    margin-bottom: 0;
+    color: color('grey-base-secondary');
+  }
+}

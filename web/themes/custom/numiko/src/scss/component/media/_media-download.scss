@@ -1,0 +1,22 @@
+
+.media-download {
+  width: 100%;
+
+  @include media('>=large') {
+    display: flex;
+  }
+}
+
+.media-download__content {
+  margin-top: 1rem;
+
+  @include media('>=large') {
+    margin-top: 0;
+    margin-left: $spacing-xs;
+  }
+}
+
+.media-download__list {
+  @include typi('small');
+  color: color('grey-base-secondary');
+}

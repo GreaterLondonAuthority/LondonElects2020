@@ -1,0 +1,20 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_scheduled_publish
+    - node.type.article
+  module:
+    - scheduled_publish
+id: node.article.field_scheduled_publish
+field_name: field_scheduled_publish
+entity_type: node
+bundle: article
+label: 'Scheduled publish'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: scheduled_publish

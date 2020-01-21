@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies: {  }
+id: administer_taxonomy
+label: 'Administer taxonomies'
+weight: -4
+is_admin: null
+permissions:
+  - 'access taxonomy overview'
+  - 'administer taxonomy'

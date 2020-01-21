@@ -1,0 +1,9 @@
+{
+  "name": "numiko/menu_block_view_modes",
+  "type": "drupal-module",
+  "description": "Extend Menu Block with functionality to output teasers and other view modes instead of labels",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": { }
+}

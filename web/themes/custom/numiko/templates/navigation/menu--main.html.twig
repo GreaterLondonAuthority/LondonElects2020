@@ -1,0 +1,118 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link url, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{#
+  We call a macro which calls itself to render the full tree.
+  @see http://twig.sensiolabs.org/doc/tags/macro.html
+#}
+
+
+{{ menus.menu_links(items, attributes, 0) }}
+
+{% macro menu_links(items, attributes, menu_level) %}
+  {% import _self as menus %}
+  {% if items %}
+    {%
+      set menuClasses = [
+        'menu',
+        'menu--level-' ~ menu_level,
+      ]
+    %}
+
+    {% if menu_level == 0 %}
+      <ul{{ attributes.setAttribute('class', menuClasses).addClass('js-drilldown-root') }}>
+    {% else %}
+      <div class='menu__submenu menu__submenu--level-{{menu_level}} js-drilldown-sub'>
+      <ul{{ attributes.setAttribute('class', menuClasses) }}>
+
+        <!-- Back button -->
+        <li class="menu__item menu__item--back | js-drilldown-back">
+          <button class="menu__toggle menu__toggle--back | js-drilldown-button">
+            <span>&laquo; Back</span>
+          </button>
+        </li>
+
+    {% endif %}
+
+    {% for item in items %}
+      {%
+        set itemClasses = [
+          'menu__item',
+          item.is_expanded ? 'menu__item--expanded',
+          item.is_collapsed ? 'menu__item--collapsed',
+          item.in_active_trail ? 'menu__item--active-trail',
+          'menu__item--level-' ~ menu_level,
+          item.original_link.pluginDefinition.description ? 'menu__item--' ~ item.original_link.pluginDefinition.description,
+          item.mega_menu ? 'menu__item--mega'
+        ]
+      %}
+
+      {%
+      set linkClasses = [
+        'menu__link',
+        'menu__link--level-' ~  menu_level,
+        item.is_expanded ? 'menu__link--expanded',
+        item.original_link.pluginDefinition.description ? 'menu__link--' ~ item.original_link.pluginDefinition.description,
+        item.original_link.pluginDefinition.description ? 'js-' ~ item.original_link.pluginDefinition.description
+      ]
+      %}
+
+      {# Hard code the search menu item  #}
+      {% if loop.index == 1 %}
+      <li{{ item.attributes.addClass(itemClasses, 'menu__item--search') }}>
+        <a {{ attributes.setAttribute('class', linkClasses)}} href="/search">
+          <span class='animate-underline'>Search</span>
+          <svg class='icon icon--stroke'><use xlink:href='#sprite-icon-search'></use></svg>
+        </a>
+      </li>
+      {% endif %}
+
+      <li{{ item.attributes.addClass(itemClasses).removeClass('menu__item--search') }}>
+        
+        
+        <a {{ attributes.setAttribute('class', linkClasses)}} href="{{item.url}}" {% if item.is_expanded %} {% endif %}><span class='animate-underline'>{{ item.title }}</span>
+        </a>
+        {% if item.is_expanded %}
+          <button class="menu__toggle | js-drilldown-button" aria-label="Expand {{item.title}}">&raquo;</button>
+        {% endif %}
+        {% if item.description %}
+          <span class='menu__description'>{{ item.description }}</span>
+        {% endif %}
+        <!-- Mobile menu -->
+        {% if item.below %}
+          {{ menus.menu_links(item.below, attributes, menu_level + 1) }}
+        {% endif %}
+        <!-- Desktop menu -->
+        {% if item.mega_menu %}
+          {{ item.entity }}
+        {% endif %}
+      </li>
+    {% endfor %}
+    {% if menu_level == 0 %}
+      </ul>
+    {% else %}
+      </ul>
+      </div>
+      {% endif %}
+  {% endif %}
+{% endmacro %}
+

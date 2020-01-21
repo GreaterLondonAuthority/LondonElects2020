@@ -1,0 +1,34 @@
+/*
+ * The global container
+ * Will restrict width - resuse everytime you want to lock content width.
+ */
+.container,
+.container-fluid {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 $container-gutter-tiny;
+  max-width: $container-max-width;
+
+  @include media('>=small') {
+    padding: 0 $container-gutter-small;
+  }
+
+  @include media('>=medium') {
+    padding: 0 $container-gutter-medium;
+  }
+
+  @include media('>=large') {
+    padding: 0 $container-gutter-large;
+  }
+}
+
+.container-fluid {
+  max-width: none;
+}
+
+.container__pinch {
+  @include media('>=large') {
+    margin-left: percentage(1/12);
+    margin-right: percentage(1/12);
+  }
+}

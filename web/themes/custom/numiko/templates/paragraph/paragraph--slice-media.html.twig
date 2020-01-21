@@ -1,0 +1,13 @@
+{% extends '@numiko/paragraph/paragraph--slice.html.twig' %}
+
+{% block content %}
+  <figure class="media-item-in-slice">
+    {{ content|without('field_title', 'field_hide_title', 'field_text') }}
+
+    {% if has_value(content.field_text) %}
+      <figcaption>
+        {{ content.field_text }}
+      </figcaption>
+    {% endif %}
+  </figure>
+{% endblock %}

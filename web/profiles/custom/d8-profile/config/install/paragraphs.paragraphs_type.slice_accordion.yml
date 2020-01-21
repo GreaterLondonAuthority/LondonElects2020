@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: slice_accordion
+label: 'Slice: Accordion'
+icon_uuid: null
+description: 'Add an accordion slice'
+behavior_plugins: {  }

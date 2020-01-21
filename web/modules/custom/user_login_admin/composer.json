@@ -1,0 +1,9 @@
+{
+  "name": "numiko/user_login_admin",
+  "type": "drupal-module",
+  "description": "Switch user login and password reset routes to use the admin theme",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "minimum-stability": "dev",
+  "require": { }
+}

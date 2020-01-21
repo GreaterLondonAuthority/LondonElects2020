@@ -1,0 +1,7 @@
+
+/*
+* Strip units from a sass variable
+*/
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+ }

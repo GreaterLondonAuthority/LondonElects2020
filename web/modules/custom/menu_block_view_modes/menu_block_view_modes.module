@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Contains menu_block_view_modes.module..
+ */
+use Drupal\menu_block_view_modes\Menu\MenuBlockViewMode;
+
+/**
+ * Implements hook_menu_block_build_form_alter().
+ */
+function menu_block_view_modes_menu_block_build_form_alter(&$form, $module_additions_config) {
+  $menu_reference_entities = 'node';
+  $view_mode_options = \Drupal::service('entity_display.repository')->getViewModeOptions($menu_reference_entities);
+
+  $form['advanced']['module_additions']['view_mode'] = array(
+    '#type' => 'select',
+    '#options' => $view_mode_options,
+    '#title' => t('<strong>View mode to render</strong>'),
+    '#default_value' => $module_additions_config['view_mode'],
+    '#empty_option' => '- Label only -',
+    '#description' => t('If specified menu links will display the linked entity in the specified view mode.'),
+  );
+  $form['advanced']['module_additions']['render_level'] = array(
+    '#type' => 'number',
+    '#min' => 1,
+    '#title' => '<strong>' . t('Level to render') . '</strong>',
+    '#description' => t('Render this level, relative to the "Fixed parent item", as "View mode to render" if selected. ') .
+                      t('e.g. 1 = children of the selected menu link (default), 2 = grandchildren, etc.'),
+    '#default_value' => !empty($module_additions_config['render_level']) ? $module_additions_config['render_level'] : 1,
+  );
+}
+
+/**
+ * Implements hook_menu_block_build_alter().
+ */
+function menu_block_view_modes_menu_block_build_alter(&$build, $module_additions_config) {
+  if (empty($module_additions_config['view_mode'])) {
+    return;
+  }
+
+  $current_level = 1;
+  $render_level = ($module_additions_config['render_level']) ? $module_additions_config['render_level'] : 1;
+  $view_mode = $module_additions_config['view_mode'];
+
+  $menuBlockViewMode = new MenuBlockViewMode($render_level, $view_mode);
+  $menuBlockViewMode->buildItems($build);
+}

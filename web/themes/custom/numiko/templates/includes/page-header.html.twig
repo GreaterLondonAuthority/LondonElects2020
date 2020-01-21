@@ -1,0 +1,25 @@
+<header class='header' role="banner">
+  <div class='container container-fluid | header__container'>
+    {{ page.header }}
+
+    {# TODO: Replace with sola search #}
+    <div class='header__search'>
+      <a href='/search' class="button button--inverted">
+        <span>Site search</span>
+        <svg class='icon icon--stroke'>
+          <use xlink:href='#sprite-icon-search'></use>  
+        </svg>
+      </a>
+    </div>
+
+    <button class="hamburger | js-hamburger" type="button" aria-hidden="true" aria-expanded="true">
+      <span class="hamburger__inner">
+        <span class="hamburger__lines"></span>
+      </span>
+      <span class="hamburger__label | js-hamburger-label">Menu</span>
+    </button>
+  </div>
+<div class='menu-primary-revealer | js-menu-revealer'>
+  {{ page.primary_menu }}
+</div>
+</header>
